@@ -1,0 +1,63 @@
+# ---- Media assets ----
+# Source images live on Cloudinary (cloud zrevzjvb, folder nagar-alon-pics).
+# They are heavy binaries: Git stores every version of them in full, so the
+# repo would grow permanently with each edit. See cloudinary-assets.md for
+# the public_id -> URL mapping.
+pics/
+
+# ---- OS ----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# ---- Editors / IDEs ----
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ---- Environment / secrets ----
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.json
+
+# ---- Node / JS ----
+node_modules/
+dist/
+build/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.next/
+.parcel-cache/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ---- Logs / temp ----
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ---- Claude Code ----
+.claude/settings.local.json
