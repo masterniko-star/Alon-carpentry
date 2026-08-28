@@ -179,28 +179,6 @@ a:hover { color: var(--graphite); }
   color: var(--ink-soft);
 }
 
-/* גילוי נאות על תמונות ה-AI */
-.disclosure {
-  max-inline-size: 62ch;
-  margin-block: 0 var(--s5);
-  padding: var(--s3) var(--s4);
-  border-inline-start: 4px solid var(--oak);
-  border-radius: var(--r-sm);
-  background-color: var(--white);
-  color: var(--ink);
-  font-size: var(--fs-sm);
-}
-
-.disclosure--inline {
-  margin-block: var(--s3) 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--ink-soft);
-  font-size: var(--fs-xs);
-  line-height: 1.5;
-}
-
 /* --------------------------------------------------------------------------
    4. כפתורים
    -------------------------------------------------------------------------- */
