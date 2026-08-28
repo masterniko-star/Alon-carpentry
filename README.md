@@ -51,19 +51,29 @@ https://res.cloudinary.com/zrevzjvb/image/upload/<טרנספורמציות>/<ג�
 לדוגמה:
 
 ```
-.../upload/f_auto,q_auto,c_fill,g_auto,ar_4:5,w_800/v1787857693/nagar-alon-pics/pic_alon_1.png
+.../upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857693/nagar-alon-pics/pic_alon_1.png
 ```
 
-* `f_auto` — פורמט אוטומטי (AVIF/WebP לפי הדפדפן). **לא למחוק.**
-* `q_auto` — דחיסה אוטומטית. **לא למחוק.**
+* `f_avif` / `f_auto` — פורמט התמונה. **לא למחוק.**
+* `q_auto:eco` — דחיסה אוטומטית בדרגה חסכונית. **לא למחוק.**
 * `c_fill,g_auto` — חיתוך חכם שממורכז על נושא התמונה.
 * `ar_4:5` — יחס גובה-רוחב (גלריה 4:5, hero 3:2).
-* `w_400` / `w_600` / `w_800` — הרוחבים שמופיעים ב-`srcset`.
+* `w_400` … `w_800` — הרוחבים שמופיעים ב-`srcset`.
 * `v1787857693` — מספר גרסת הנכס ב-Cloudinary.
+
+כל תמונת תוכן עטופה ב-`<picture>` עם שני מקורות:
+
+* `<source type="image/avif">` עם `f_avif` — מה שרוב הטלפונים מקבלים בפועל.
+* `<img>` עם `f_auto` — גיבוי לדפדפנים בלי AVIF (מקבלים WebP, ובמקרה קיצון JPEG).
+
+הסיבה ל-`f_avif` מפורש: בחשבון Cloudinary הזה `f_auto` מגיש WebP ולא AVIF, ו-AVIF
+קטן ממנו בכ-45% באותה איכות. אם AVIF יופעל בהגדרות החשבון, אפשר יהיה להסיר את
+ה-`<source>` ולהסתפק ב-`f_auto`.
 
 להחלפת תמונה: להעלות קובץ חדש לתיקייה `nagar-alon-pics`, ואז להחליף בקוד רק את
 **שם הקובץ ואת מספר הגרסה** — ולהשאיר את הטרנספורמציות כפי שהן. חשוב לעדכן את כל
-הופעות אותה תמונה באלמנט (`src` ו-`srcset`), ואת ה-`alt` לתיאור מה שנראה בתמונה החדשה.
+הופעות אותה תמונה באלמנט (`src` ושני ה-`srcset`), ואת ה-`alt` לתיאור מה שנראה
+בתמונה החדשה.
 
 אם התמונה החדשה אינה ביחס 4:5 או 3:2, ה-`c_fill,g_auto` יחתוך אותה לפי היחס
 המבוקש — לכן כדאי לבדוק שהחיתוך לא פוגע ברהיט.
@@ -143,6 +153,9 @@ https://res.cloudinary.com/zrevzjvb/image/upload/<טרנספורמציות>/<ג�
 * `<label>` אמיתי לכל שדה, `aria-describedby` לטקסטי עזר, מצבי focus ברורים.
 * כל התמונות עם `alt` בעברית, `width`/`height` מפורשים ו-`decoding="async"`.
 * תמונת ה-hero נטענת ב-`fetchpriority="high"` וללא `loading="lazy"`; כל היתר `lazy`.
-* `srcset` + `sizes` לכל תמונה משמעותית, ו-`f_auto,q_auto` בכל כתובת Cloudinary.
+* `srcset` + `sizes` לכל תמונה משמעותית, ברוחבים מכוילים למסכי טלפון ב-DPR 2–3.
+* `<picture>` עם `<source type="image/avif">` לכל תמונת תוכן, ו-`q_auto:eco` בכל
+  כתובת Cloudinary — יחד כ-51% פחות בייטים בטעינה מטלפון.
+* `preconnect` ל-`res.cloudinary.com` ו-`preload` לתמונת ה-hero (ה-LCP).
 * `prefers-reduced-motion` מבטל גלילה חלקה ומעברים.
 * ללא פונטים חיצוניים, ללא trackers, ללא cookies.

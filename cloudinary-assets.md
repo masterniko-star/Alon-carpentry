@@ -28,4 +28,32 @@ Base URL: `https://res.cloudinary.com/zrevzjvb/image/upload/`
 - Spaces and parentheses in the original file names were normalized to
   underscores in the `public_id` (`pic_alon (1).png` -> `pic_alon_1`).
 - Add transformations right after `/upload/`, e.g.
-  `.../upload/f_auto,q_auto,w_800/nagar-alon-pics/logo1.png`.
+  `.../upload/f_avif,q_auto:eco,w_800/nagar-alon-pics/logo1.png`.
+
+## Delivery convention
+
+Content images are delivered through `<picture>` with two candidate formats:
+
+| Purpose | Transformation prefix |
+|---|---|
+| `<source type="image/avif">` | `f_avif,q_auto:eco,…` |
+| `<img>` fallback | `f_auto,q_auto:eco,…` |
+
+`f_auto` is **not** enough on its own here: this account's auto-format serves
+WebP, never AVIF, even when the browser advertises AVIF support. Measured on
+`pic_alon_1` at `ar_4:5,w_800` — WebP `q_auto` 55.9 KB, WebP `q_auto:eco`
+47.0 KB, AVIF `q_auto:eco` 25.4 KB.
+
+srcset widths in use:
+
+| Slot | Widths |
+|---|---|
+| Hero (`ar_3:2`) | 480, 560, 760, 1120 |
+| Gallery tile (`ar_4:5`) | 400, 560, 720, 800 |
+| About (`ar_4:5`) | 360, 560, 700 |
+| Header logo | 272, 360, 540 |
+| Footer logo | 264, 396 |
+
+`og:image`, the schema.org logo and the favicon stay on plain `f_auto,q_auto` —
+social scrapers and favicon fetchers are not always AVIF-capable, and `f_auto`
+already falls back to JPEG/PNG for them.
