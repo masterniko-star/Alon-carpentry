@@ -650,7 +650,31 @@ select {
 .site-footer :focus-visible { outline-color: var(--cream); }
 
 /* --------------------------------------------------------------------------
-   13. נקודות שבירה
+   13. עמודי מצב אחרי שליחת הטופס (toda.html, shgia.html)
+   -------------------------------------------------------------------------- */
+.notice { text-align: center; }
+
+/* הלוגו בראש העמוד — יחס מקורי נשמר, בלי חיתוך ובלי מתיחה */
+.notice__logo {
+  inline-size: 180px;
+  max-inline-size: 60%;
+  block-size: auto;
+  margin-inline: auto;
+  margin-block-end: var(--s5);
+}
+
+.notice__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s3);
+  margin-block-start: var(--s6);
+  list-style: none;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   14. נקודות שבירה
    -------------------------------------------------------------------------- */
 @media (min-width: 25em) {
   .header-cta { display: inline-flex; }
@@ -704,7 +728,7 @@ select {
 }
 
 /* --------------------------------------------------------------------------
-   14. העדפות תנועה
+   15. העדפות תנועה
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
