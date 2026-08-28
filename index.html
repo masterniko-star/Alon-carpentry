@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto,c_fill,g_auto,ar_3:2,w_1120/v1787857700/nagar-alon-pics/pic_alon_3.png">
 <meta property="og:image:alt" content="הדמיה של קיר אחסון מעץ בהיר בסלון">
 
-<meta name="theme-color" content="#F6F1E9">
+<meta name="theme-color" content="#E8E9E4">
 <link rel="icon" href="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto,w_128/v1787857680/nagar-alon-pics/logo1.png">
 <!-- חיבור מוקדם ל-CDN של התמונות: חוסך DNS+TLS לפני בקשת התמונה הראשונה -->
 <link rel="preconnect" href="https://res.cloudinary.com">
@@ -104,38 +104,71 @@
 
 <main id="main">
 
-  <!-- HERO -->
+  <!-- HERO — דף שרטוט: כותרת, תמונה עם קו מידה, ואזור הכותרת עם נתוני העבודה -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap hero__inner">
-      <div class="hero__text">
-        <p class="eyebrow">נגרות בהתאמה אישית</p>
-        <h1 id="hero-title">רהיטים שנבנים לפי החלל שלכם, לא לפי מידה סטנדרטית</h1>
-        <p class="lead">נגריית אלון בונה שולחנות, ארונות ומזנונים, קירות אחסון ומטבחים בהתאמה אישית — לפי המידות, החומר והסגנון שמתאימים לבית. כל עבודה מתחילה בשיחה ובהבנה של הצורך, וממשיכה בתיאום אישי לאורך הדרך.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#contact">לשיחה על הפרויקט שלכם</a>
-          <a class="btn btn--ghost" href="#gallery">לצפייה בעבודות</a>
+    <div class="wrap hero__sheet">
+
+      <div class="hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">נגרות בהתאמה אישית</p>
+          <h1 id="hero-title">רהיטים שנבנים לפי החלל שלכם, לא לפי מידה סטנדרטית</h1>
+          <p class="lead">נגריית אלון בונה שולחנות, ארונות ומזנונים, קירות אחסון ומטבחים בהתאמה אישית — לפי המידות, החומר והסגנון שמתאימים לבית. כל עבודה מתחילה בשיחה ובהבנה של הצורך, וממשיכה בתיאום אישי לאורך הדרך.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contact">לשיחה על הפרויקט שלכם</a>
+            <a class="btn btn--ghost" href="#gallery">לצפייה בעבודות</a>
+          </div>
         </div>
+
+        <figure class="hero__media">
+          <picture>
+            <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
+            <source type="image/avif"
+                    srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_3:2,w_480/v1787857700/nagar-alon-pics/pic_alon_3.png 480w,
+                            https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_3:2,w_560/v1787857700/nagar-alon-pics/pic_alon_3.png 560w,
+                            https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_3:2,w_760/v1787857700/nagar-alon-pics/pic_alon_3.png 760w,
+                            https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_3:2,w_1120/v1787857700/nagar-alon-pics/pic_alon_3.png 1120w"
+                    sizes="(min-width: 64em) 34rem, 94vw">
+            <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_3:2,w_1120/v1787857700/nagar-alon-pics/pic_alon_3.png"
+                 srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_3:2,w_480/v1787857700/nagar-alon-pics/pic_alon_3.png 480w,
+                         https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_3:2,w_560/v1787857700/nagar-alon-pics/pic_alon_3.png 560w,
+                         https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_3:2,w_760/v1787857700/nagar-alon-pics/pic_alon_3.png 760w,
+                         https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_3:2,w_1120/v1787857700/nagar-alon-pics/pic_alon_3.png 1120w"
+                 sizes="(min-width: 64em) 34rem, 94vw"
+                 width="1120" height="747" decoding="async" fetchpriority="high"
+                 alt="קיר אחסון מעץ בהיר בסלון, עם מזנון נמוך, ארון ויטרינה ומדפים פתוחים">
+          </picture>
+          <!--
+            קו מידה — האלמנט המזהה של העמוד. בשרטוט נגרות עומד כאן מספר;
+            כאן המידה שייכת ללקוח ועוד לא נמדדה, ולכן היא משתנה (X) ולא מספר.
+          -->
+          <figcaption class="dimline">
+            <span class="dimline__rule dimline__rule--start" aria-hidden="true"></span>
+            <span class="dimline__value" aria-hidden="true">X</span>
+            <span class="dimline__rule dimline__rule--end" aria-hidden="true"></span>
+            <span class="dimline__note">לפי המידה שלכם</span>
+          </figcaption>
+        </figure>
       </div>
 
-      <figure class="hero__media">
-        <picture>
-          <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
-          <source type="image/avif"
-                  srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_3:2,w_480/v1787857700/nagar-alon-pics/pic_alon_3.png 480w,
-                          https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_3:2,w_560/v1787857700/nagar-alon-pics/pic_alon_3.png 560w,
-                          https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_3:2,w_760/v1787857700/nagar-alon-pics/pic_alon_3.png 760w,
-                          https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_3:2,w_1120/v1787857700/nagar-alon-pics/pic_alon_3.png 1120w"
-                  sizes="(min-width: 64em) 34rem, 94vw">
-          <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_3:2,w_1120/v1787857700/nagar-alon-pics/pic_alon_3.png"
-               srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_3:2,w_480/v1787857700/nagar-alon-pics/pic_alon_3.png 480w,
-                       https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_3:2,w_560/v1787857700/nagar-alon-pics/pic_alon_3.png 560w,
-                       https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_3:2,w_760/v1787857700/nagar-alon-pics/pic_alon_3.png 760w,
-                       https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_3:2,w_1120/v1787857700/nagar-alon-pics/pic_alon_3.png 1120w"
-               sizes="(min-width: 64em) 34rem, 94vw"
-               width="1120" height="747" decoding="async" fetchpriority="high"
-               alt="קיר אחסון מעץ בהיר בסלון, עם מזנון נמוך, ארון ויטרינה ומדפים פתוחים">
-        </picture>
-      </figure>
+      <!--
+        אזור הכותרת של השרטוט: שלושת הנתונים שנשאלים בכל פנייה.
+        משך הייצור וזמן המענה נמסרו על ידי בעל העסק ב-28.08.2026.
+      -->
+      <dl class="specstrip">
+        <div class="spec">
+          <dt>מענה לפנייה</dt>
+          <dd>יום עסקים אחד</dd>
+        </div>
+        <div class="spec">
+          <dt>משך ייצור</dt>
+          <dd>4&#8211;8 שבועות</dd>
+        </div>
+        <div class="spec">
+          <dt>ליווי</dt>
+          <dd>איש קשר אחד לאורך הפרויקט</dd>
+        </div>
+      </dl>
+
     </div>
   </section>
 
@@ -145,11 +178,17 @@
       <h2 id="gallery-title">עבודות וסגנונות</h2>
       <p class="section-intro">מבחר פריטים שממחישים את אופי העבודה: קווים נקיים, פרופורציות מדויקות ושילוב בין אחסון סגור לפתוח.</p>
 
+      <!--
+        TODO (לבעל העסק): הכיתובים מתארים סוג עבודה וחומר בלבד, כי התמונות הן הדמיות.
+        כשיהיו צילומים של עבודות אמיתיות — להחליף כאן בפרטים המדויקים:
+        מין העץ, מידות הפריט, שנת הביצוע והמקום.
+      -->
+
       <ul class="gallery">
         <li>
           <figure class="tile">
             <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
-            <a class="tile__zoom" href="#pic-1" aria-label="הגדלת התמונה: שולחן עם מגירה, מוצב ליד חלון">
+            <a class="tile__zoom" href="#pic-1" aria-label="הגדלת התמונה: שולחן · עץ בגוון בהיר">
               <picture>
                 <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
                 <source type="image/avif"
@@ -168,7 +207,7 @@
                      alt="שולחן מעץ בהיר עם מגירה ורגליים דקות, מוצב ליד חלון גדול">
               </picture>
             </a>
-            <figcaption>שולחן עם מגירה, מוצב ליד חלון</figcaption>
+            <figcaption class="tile__caption"><span class="tile__kind">שולחן · עץ בגוון בהיר</span>מגירה אחת בחזית ורגליים דקות — פרופורציות לחלל צר ליד חלון.</figcaption>
           </figure>
 
           <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
@@ -189,7 +228,7 @@
                      width="1122" height="1402" loading="lazy" decoding="async"
                      alt="שולחן מעץ בהיר עם מגירה ורגליים דקות, מוצב ליד חלון גדול">
               </picture>
-              <figcaption>שולחן עם מגירה, מוצב ליד חלון</figcaption>
+              <figcaption class="tile__caption"><span class="tile__kind">שולחן · עץ בגוון בהיר</span>מגירה אחת בחזית ורגליים דקות — פרופורציות לחלל צר ליד חלון.</figcaption>
             </figure>
             <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
           </div>
@@ -198,7 +237,7 @@
         <li>
           <figure class="tile">
             <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
-            <a class="tile__zoom" href="#pic-2" aria-label="הגדלת התמונה: שולחן סלון נמוך עם מגירה ומדף">
+            <a class="tile__zoom" href="#pic-2" aria-label="הגדלת התמונה: שולחן סלון · גוף נמוך">
               <picture>
                 <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
                 <source type="image/avif"
@@ -217,7 +256,7 @@
                      alt="שולחן סלון נמוך מעץ בהיר עם מגירה ומדף פתוח, לצד כורסה">
               </picture>
             </a>
-            <figcaption>שולחן סלון נמוך עם מגירה ומדף</figcaption>
+            <figcaption class="tile__caption"><span class="tile__kind">שולחן סלון · גוף נמוך</span>מגירה סגורה ומדף פתוח באותו פריט, בגובה ישיבה.</figcaption>
           </figure>
 
           <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
@@ -238,7 +277,7 @@
                      width="1122" height="1402" loading="lazy" decoding="async"
                      alt="שולחן סלון נמוך מעץ בהיר עם מגירה ומדף פתוח, לצד כורסה">
               </picture>
-              <figcaption>שולחן סלון נמוך עם מגירה ומדף</figcaption>
+              <figcaption class="tile__caption"><span class="tile__kind">שולחן סלון · גוף נמוך</span>מגירה סגורה ומדף פתוח באותו פריט, בגובה ישיבה.</figcaption>
             </figure>
             <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
           </div>
@@ -247,7 +286,7 @@
         <li>
           <figure class="tile">
             <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
-            <a class="tile__zoom" href="#pic-3" aria-label="הגדלת התמונה: ארון בנוי עם דלתות זכוכית ומגירות">
+            <a class="tile__zoom" href="#pic-3" aria-label="הגדלת התמונה: ארון בנוי · עץ וזכוכית">
               <picture>
                 <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
                 <source type="image/avif"
@@ -266,7 +305,7 @@
                      alt="יחידת ארון בנויה עם דלתות זכוכית מחורצת, מדפים פתוחים ומגירות בבסיס">
               </picture>
             </a>
-            <figcaption>ארון בנוי עם דלתות זכוכית ומגירות</figcaption>
+            <figcaption class="tile__caption"><span class="tile__kind">ארון בנוי · עץ וזכוכית</span>מגירות סגורות וויטרינה מוארת בגוף אחד, מהרצפה עד התקרה.</figcaption>
           </figure>
 
           <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
@@ -287,7 +326,7 @@
                      width="1122" height="1402" loading="lazy" decoding="async"
                      alt="יחידת ארון בנויה עם דלתות זכוכית מחורצת, מדפים פתוחים ומגירות בבסיס">
               </picture>
-              <figcaption>ארון בנוי עם דלתות זכוכית ומגירות</figcaption>
+              <figcaption class="tile__caption"><span class="tile__kind">ארון בנוי · עץ וזכוכית</span>מגירות סגורות וויטרינה מוארת בגוף אחד, מהרצפה עד התקרה.</figcaption>
             </figure>
             <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
           </div>
@@ -296,7 +335,7 @@
         <li>
           <figure class="tile">
             <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
-            <a class="tile__zoom" href="#pic-4" aria-label="הגדלת התמונה: מזנון וארונות בחלל פתוח">
+            <a class="tile__zoom" href="#pic-4" aria-label="הגדלת התמונה: מזנון · יחידה לחלל פתוח">
               <picture>
                 <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
                 <source type="image/avif"
@@ -315,7 +354,7 @@
                      alt="חלל מגורים פתוח ובו מזנון נמוך וארונות מעץ בהיר">
               </picture>
             </a>
-            <figcaption>מזנון וארונות בחלל פתוח</figcaption>
+            <figcaption class="tile__caption"><span class="tile__kind">מזנון · יחידה לחלל פתוח</span>גוף נמוך ורציף שמפריד בין אזורים בלי לחסום את החלל.</figcaption>
           </figure>
 
           <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
@@ -336,7 +375,7 @@
                      width="1122" height="1402" loading="lazy" decoding="async"
                      alt="חלל מגורים פתוח ובו מזנון נמוך וארונות מעץ בהיר">
               </picture>
-              <figcaption>מזנון וארונות בחלל פתוח</figcaption>
+              <figcaption class="tile__caption"><span class="tile__kind">מזנון · יחידה לחלל פתוח</span>גוף נמוך ורציף שמפריד בין אזורים בלי לחסום את החלל.</figcaption>
             </figure>
             <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
           </div>
@@ -345,7 +384,7 @@
         <li>
           <figure class="tile">
             <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
-            <a class="tile__zoom" href="#pic-5" aria-label="הגדלת התמונה: קיר אחסון עם משטח עבודה משולב">
+            <a class="tile__zoom" href="#pic-5" aria-label="הגדלת התמונה: קיר אחסון · בהתאמה לגובה החדר">
               <picture>
                 <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
                 <source type="image/avif"
@@ -364,7 +403,7 @@
                      alt="קיר אחסון מעץ בהיר בחדר עבודה, עם ארונות סגורים, מדפים פתוחים ומשטח עבודה">
               </picture>
             </a>
-            <figcaption>קיר אחסון עם משטח עבודה משולב</figcaption>
+            <figcaption class="tile__caption"><span class="tile__kind">קיר אחסון · בהתאמה לגובה החדר</span>מדפים פתוחים, ארונות סגורים ומשטח עבודה משולב בקו אחד.</figcaption>
           </figure>
 
           <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
@@ -385,7 +424,7 @@
                      width="1122" height="1402" loading="lazy" decoding="async"
                      alt="קיר אחסון מעץ בהיר בחדר עבודה, עם ארונות סגורים, מדפים פתוחים ומשטח עבודה">
               </picture>
-              <figcaption>קיר אחסון עם משטח עבודה משולב</figcaption>
+              <figcaption class="tile__caption"><span class="tile__kind">קיר אחסון · בהתאמה לגובה החדר</span>מדפים פתוחים, ארונות סגורים ומשטח עבודה משולב בקו אחד.</figcaption>
             </figure>
             <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
           </div>
@@ -394,7 +433,7 @@
         <li>
           <figure class="tile">
             <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
-            <a class="tile__zoom" href="#pic-6" aria-label="הגדלת התמונה: מטבח עם אי מרכזי וארונות גבוהים">
+            <a class="tile__zoom" href="#pic-6" aria-label="הגדלת התמונה: מטבח · אי מרכזי וטור ארונות">
               <picture>
                 <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
                 <source type="image/avif"
@@ -413,7 +452,7 @@
                      alt="מטבח מעץ בהיר עם אי מרכזי, ארונות גבוהים ומשטח בהיר">
               </picture>
             </a>
-            <figcaption>מטבח עם אי מרכזי וארונות גבוהים</figcaption>
+            <figcaption class="tile__caption"><span class="tile__kind">מטבח · אי מרכזי וטור ארונות</span>חזיתות ללא ידיות, ואי שמשמש גם משטח עבודה וגם ישיבה.</figcaption>
           </figure>
 
           <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
@@ -434,7 +473,7 @@
                      width="1122" height="1402" loading="lazy" decoding="async"
                      alt="מטבח מעץ בהיר עם אי מרכזי, ארונות גבוהים ומשטח בהיר">
               </picture>
-              <figcaption>מטבח עם אי מרכזי וארונות גבוהים</figcaption>
+              <figcaption class="tile__caption"><span class="tile__kind">מטבח · אי מרכזי וטור ארונות</span>חזיתות ללא ידיות, ואי שמשמש גם משטח עבודה וגם ישיבה.</figcaption>
             </figure>
             <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
           </div>
@@ -443,7 +482,7 @@
         <li>
           <figure class="tile">
             <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
-            <a class="tile__zoom" href="#pic-7" aria-label="הגדלת התמונה: תקריב: פינת אי וקצה מעוגל">
+            <a class="tile__zoom" href="#pic-7" aria-label="הגדלת התמונה: פרט · שבירת קצה בפינת אי">
               <picture>
                 <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
                 <source type="image/avif"
@@ -462,7 +501,7 @@
                      alt="תקריב של פינת אי מטבח מעץ בהיר עם משטח אבן וקצה מעוגל">
               </picture>
             </a>
-            <figcaption>תקריב: פינת אי וקצה מעוגל</figcaption>
+            <figcaption class="tile__caption"><span class="tile__kind">פרט · שבירת קצה בפינת אי</span>הקצה מעוגל בנקודת מעבר, כדי שלא תישאר פינה חדה.</figcaption>
           </figure>
 
           <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
@@ -483,7 +522,7 @@
                      width="1122" height="1402" loading="lazy" decoding="async"
                      alt="תקריב של פינת אי מטבח מעץ בהיר עם משטח אבן וקצה מעוגל">
               </picture>
-              <figcaption>תקריב: פינת אי וקצה מעוגל</figcaption>
+              <figcaption class="tile__caption"><span class="tile__kind">פרט · שבירת קצה בפינת אי</span>הקצה מעוגל בנקודת מעבר, כדי שלא תישאר פינה חדה.</figcaption>
             </figure>
             <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
           </div>
@@ -492,7 +531,7 @@
         <li>
           <figure class="tile">
             <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
-            <a class="tile__zoom" href="#pic-8" aria-label="הגדלת התמונה: תקריב: חזית מגירה וקו הפרדה">
+            <a class="tile__zoom" href="#pic-8" aria-label="הגדלת התמונה: פרט · מרווח בין חזיתות">
               <picture>
                 <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
                 <source type="image/avif"
@@ -511,7 +550,7 @@
                      alt="תקריב של חזית מגירה מעץ בהיר עם קצה מעוגל וקו הפרדה כהה">
               </picture>
             </a>
-            <figcaption>תקריב: חזית מגירה וקו הפרדה</figcaption>
+            <figcaption class="tile__caption"><span class="tile__kind">פרט · מרווח בין חזיתות</span>קו ההפרדה בין המגירות נשמר אחיד לאורך כל החזית.</figcaption>
           </figure>
 
           <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
@@ -532,7 +571,7 @@
                      width="1122" height="1402" loading="lazy" decoding="async"
                      alt="תקריב של חזית מגירה מעץ בהיר עם קצה מעוגל וקו הפרדה כהה">
               </picture>
-              <figcaption>תקריב: חזית מגירה וקו הפרדה</figcaption>
+              <figcaption class="tile__caption"><span class="tile__kind">פרט · מרווח בין חזיתות</span>קו ההפרדה בין המגירות נשמר אחיד לאורך כל החזית.</figcaption>
             </figure>
             <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
           </div>
@@ -546,25 +585,25 @@
     TODO (לפני עלייה לאוויר): לאשר מול בעל העסק את רשימת סוגי העבודות.
     הרשימה נגזרה אך ורק ממה שנראה בהדמיות שבתיקיית Cloudinary ולא ממידע עסקי שסופק.
   -->
-  <section id="services" class="section section--tint" aria-labelledby="services-title">
+  <section id="services" class="section section--sheet" aria-labelledby="services-title">
     <div class="wrap">
       <h2 id="services-title">סוגי עבודות</h2>
       <p class="section-intro">כל פריט נבנה בהתאמה למידות ולשימוש בפועל. אלה סוגי העבודות שמוצגים באתר:</p>
 
-      <ul class="cards">
-        <li class="card">
+      <ul class="specs">
+        <li class="spec-row">
           <h3>שולחנות</h3>
           <p>שולחנות לחלל האוכל ולסלון, עם מגירות או מדף פתוח לפי הצורך.</p>
         </li>
-        <li class="card">
+        <li class="spec-row">
           <h3>ארונות ומזנונים</h3>
           <p>יחידות אחסון בנויות, עם שילוב של דלתות סגורות, זכוכית ומגירות.</p>
         </li>
-        <li class="card">
+        <li class="spec-row">
           <h3>קירות אחסון וספריות</h3>
           <p>ניצול מלא של הקיר, עם מדפים פתוחים, ארונות סגורים ומשטח עבודה משולב.</p>
         </li>
-        <li class="card">
+        <li class="spec-row">
           <h3>מטבחים</h3>
           <p>מטבחים עם אי מרכזי, ארונות גבוהים ופתרונות אחסון מותאמים לחלל.</p>
         </li>
@@ -573,23 +612,23 @@
   </section>
 
   <!-- VALUES -->
-  <section id="values" class="section" aria-labelledby="values-title">
+  <section id="values" class="section section--dark" aria-labelledby="values-title">
     <div class="wrap">
       <h2 id="values-title">איך נראית עבודה מול נגריית אלון</h2>
-      <ul class="values">
-        <li class="value">
+      <ul class="claims">
+        <li class="claim">
           <h3>יחס אישי</h3>
           <p>תקשורת ישירה לאורך כל הדרך, בלי להעביר אתכם בין גורמים.</p>
         </li>
-        <li class="value">
+        <li class="claim">
           <h3>שקיפות</h3>
           <p>מה שמסוכם מראש — המידות, החומרים והפרטים — הוא מה שנבנה.</p>
         </li>
-        <li class="value">
+        <li class="claim">
           <h3>תשומת לב לפרטים</h3>
           <p>גימור, חיבורים ופרופורציות הם חלק מהעבודה, לא תוספת.</p>
         </li>
-        <li class="value">
+        <li class="claim">
           <h3>לוח זמנים מתואם</h3>
           <p>לוח הזמנים נקבע יחד מראש ומתעדכן לאורך הפרויקט.</p>
         </li>
@@ -604,7 +643,7 @@
     משך הייצור (ארבעה עד שמונה שבועות) וזמן המענה לפנייה (יום עסקים אחד)
     נמסרו על ידי בעל העסק ב-28.08.2026 ומופיעים כאן ככתבם.
   -->
-  <section id="process" class="section section--tint" aria-labelledby="process-title">
+  <section id="process" class="section" aria-labelledby="process-title">
     <div class="wrap">
       <h2 id="process-title">תהליך העבודה</h2>
       <p class="section-intro">חמישה שלבים פשוטים, משיחת ההיכרות ועד הרהיט במקום שלו.</p>
@@ -640,7 +679,7 @@
     (סיפור, ותק, הכשרה, מיקום, אזורי שירות). לא נכתבו כאן פרטים כאלה
     כי הם לא סופקו ולא ניתן לאמת אותם.
   -->
-  <section id="about" class="section" aria-labelledby="about-title">
+  <section id="about" class="section section--sheet" aria-labelledby="about-title">
     <div class="wrap about">
       <div class="about__text">
         <h2 id="about-title">על הנגרייה</h2>
@@ -670,7 +709,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section section--tint" aria-labelledby="contact-title">
+  <section id="contact" class="section" aria-labelledby="contact-title">
     <div class="wrap contact">
 
       <div class="contact__intro">
