@@ -398,9 +398,17 @@ a:hover { color: var(--graphite); }
   place-items: center;
   padding: var(--s5);
   background-color: rgba(41, 41, 38, 0.9);
+  /* בלי האיפוס הזה הדפדפן מגלגל את הדף כדי "לחשוף" את יעד ה-:target */
+  scroll-margin: 0;
 }
 
 .lightbox:target { display: grid; }
+
+/* כל עוד תצוגה מוגדלת פתוחה הדף שמאחוריה נעול: לא קופץ בפתיחה ולא נגלל */
+html:has(.lightbox:target) {
+  overflow: hidden;
+  scroll-behavior: auto;
+}
 
 /* כל הרקע הוא קישור סגירה, כדי שלחיצה מחוץ לתמונה תסגור את התצוגה */
 .lightbox__backdrop {
@@ -416,12 +424,14 @@ a:hover { color: var(--graphite); }
   text-align: center;
 }
 
+/* יחס המקור ידוע מראש (1122×1402), ולכן המקום מוקצה עוד לפני שהקובץ יורד —
+   אחרת השכבה נפתחת ריקה עד שהתמונה הגדולה מגיעה מהרשת */
 .lightbox__figure img {
   display: block;
-  inline-size: auto;
+  inline-size: min(100%, calc(78vh * 1122 / 1402));
   block-size: auto;
-  max-inline-size: 100%;
-  max-block-size: 78vh;
+  aspect-ratio: 1122 / 1402;
+  object-fit: contain;
   margin-inline: auto;
   border-radius: var(--r-md);
   background-color: var(--sand);
