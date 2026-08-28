@@ -382,6 +382,75 @@ a:hover { color: var(--graphite); }
   font-size: var(--fs-sm);
 }
 
+/* הקישור שעוטף את התמונה — לא משנה את מראה האריח, רק את הסמן */
+.tile__zoom {
+  display: block;
+  border-radius: var(--r-md);
+  cursor: zoom-in;
+}
+
+/* תצוגה מוגדלת של תמונת גלריה, נפתחת דרך :target — בלי JavaScript */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  place-items: center;
+  padding: var(--s5);
+  background-color: rgba(41, 41, 38, 0.9);
+}
+
+.lightbox:target { display: grid; }
+
+/* כל הרקע הוא קישור סגירה, כדי שלחיצה מחוץ לתמונה תסגור את התצוגה */
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: zoom-out;
+}
+
+.lightbox__figure {
+  position: relative;
+  margin: 0;
+  max-inline-size: min(92vw, 56rem);
+  text-align: center;
+}
+
+.lightbox__figure img {
+  display: block;
+  inline-size: auto;
+  block-size: auto;
+  max-inline-size: 100%;
+  max-block-size: 78vh;
+  margin-inline: auto;
+  border-radius: var(--r-md);
+  background-color: var(--sand);
+}
+
+.lightbox__figure figcaption {
+  margin-block-start: var(--s3);
+  color: var(--cream);
+  font-size: var(--fs-sm);
+}
+
+.lightbox__close {
+  position: absolute;
+  inset-block-start: var(--s4);
+  inset-inline-end: var(--s4);
+  display: grid;
+  place-items: center;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--ink);
+  font-size: 1.75rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.lightbox :focus-visible { outline-color: var(--cream); }
+
 /* --------------------------------------------------------------------------
    8. כרטיסים, ערכים, שלבים
    -------------------------------------------------------------------------- */
