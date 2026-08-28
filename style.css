@@ -1,0 +1,718 @@
+/* ==========================================================================
+   נגריית אלון — אתר תדמית סטטי
+   Mobile-first · RTL · ללא frameworks, ללא ספריות, ללא פונטים חיצוניים
+   הפלטה נגזרה מצבעי הלוגו (logo1.png): חום עמוק, גוון עץ ואפור-פחם.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. משתנים
+   -------------------------------------------------------------------------- */
+:root {
+  /* צבעי הלוגו */
+  --walnut: #533122;   /* חום עמוק — נדגם מהלוגו */
+  --oak: #BA8550;      /* גוון עץ — נדגם מהלוגו */
+  --graphite: #292926; /* אפור-פחם — נדגם מהלוגו */
+
+  /* רקעים ונייטרלים */
+  --cream: #F6F1E9;
+  --sand: #EFE8DC;
+  --white: #FFFFFF;
+  --ink: var(--graphite);
+  --ink-soft: #57564F;
+  --line: rgba(41, 41, 38, 0.14);
+  --line-warm: rgba(83, 49, 34, 0.26);
+
+  /* טיפוגרפיה — system stack עם תמיכה טובה בעברית */
+  --font: "Segoe UI", "Segoe UI Hebrew", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", "Arial Hebrew", Arial, "Noto Sans Hebrew", sans-serif;
+
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --fs-lead: clamp(1.0625rem, 1rem + 0.4vw, 1.1875rem);
+  --fs-h3: 1.125rem;
+  --fs-h2: clamp(1.375rem, 1.15rem + 0.95vw, 1.875rem);
+  --fs-h1: clamp(1.8125rem, 1.35rem + 2.1vw, 2.875rem);
+
+  /* מרווחים */
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.5rem;
+  --s6: 2rem;
+  --s7: 3rem;
+  --s8: 4.5rem;
+
+  /* צורה ופריסה */
+  --r-sm: 0.375rem;
+  --r-md: 0.625rem;
+  --r-lg: 1rem;
+  --wrap: 70rem;
+  --wrap-narrow: 46rem;
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2rem);
+  --header-h: 5.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. בסיס
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--fs-base);
+  line-height: 1.75;
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3 {
+  margin: 0 0 var(--s3);
+  color: var(--walnut);
+  font-weight: 600;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1); letter-spacing: -0.01em; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p { margin: 0 0 var(--s4); }
+p:last-child { margin-block-end: 0; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+img { display: block; max-inline-size: 100%; block-size: auto; }
+
+a { color: var(--walnut); text-underline-offset: 0.2em; }
+a:hover { color: var(--graphite); }
+
+:focus-visible {
+  outline: 3px solid var(--graphite);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* יעדי עוגן לא נחבאים מתחת ל-header הדביק */
+[id] { scroll-margin-block-start: calc(var(--header-h) + var(--s4)); }
+
+.skip-link:not(:focus) {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link:focus {
+  position: absolute;
+  z-index: 30;
+  inset-block-start: var(--s2);
+  inset-inline-start: var(--s2);
+  padding: var(--s2) var(--s4);
+  background-color: var(--walnut);
+  color: var(--white);
+  border-radius: var(--r-md);
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. עזרי פריסה
+   -------------------------------------------------------------------------- */
+.wrap {
+  inline-size: 100%;
+  max-inline-size: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.wrap--narrow { max-inline-size: var(--wrap-narrow); }
+
+.section {
+  padding-block: var(--s7);
+  border-block-start: 1px solid var(--line);
+}
+
+.section--slim { padding-block: var(--s6); }
+
+.section--tint {
+  background-color: var(--sand);
+  /* מרקם עץ עדין מאוד — דקורטיבי בלבד */
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(83, 49, 34, 0.024) 0 1px,
+    transparent 1px 9px
+  );
+}
+
+.eyebrow {
+  margin-block-end: var(--s2);
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.lead {
+  max-inline-size: 46ch;
+  color: var(--ink-soft);
+  font-size: var(--fs-lead);
+}
+
+.section-intro {
+  max-inline-size: 60ch;
+  margin-block-end: var(--s5);
+  color: var(--ink-soft);
+}
+
+/* גילוי נאות על תמונות ה-AI */
+.disclosure {
+  max-inline-size: 62ch;
+  margin-block: 0 var(--s5);
+  padding: var(--s3) var(--s4);
+  border-inline-start: 4px solid var(--oak);
+  border-radius: var(--r-sm);
+  background-color: var(--white);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+}
+
+.disclosure--inline {
+  margin-block: var(--s3) 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-soft);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   4. כפתורים
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2.875rem;
+  padding: var(--s2) var(--s5);
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn--primary { background-color: var(--walnut); color: var(--white); }
+.btn--primary:hover { background-color: var(--graphite); color: var(--white); }
+
+.btn--ghost {
+  background-color: transparent;
+  border-color: var(--line-warm);
+  color: var(--walnut);
+}
+.btn--ghost:hover { border-color: var(--walnut); background-color: rgba(186, 133, 80, 0.12); }
+
+.btn--outline {
+  inline-size: 100%;
+  background-color: var(--white);
+  border-color: var(--oak);
+  color: var(--walnut);
+}
+.btn--outline:hover { background-color: rgba(186, 133, 80, 0.12); }
+
+.btn--sm {
+  min-block-size: 2.5rem;
+  padding: var(--s1) var(--s4);
+  font-size: var(--fs-xs);
+}
+
+.btn[disabled] {
+  background-color: #DCD4C7;
+  border-color: transparent;
+  color: var(--ink-soft);
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   5. Header וניווט
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: relative; /* בנייד ה-header אינו דביק כדי לא לגזול גובה מסך */
+  z-index: 20;
+  background-color: var(--cream);
+  border-block-end: 1px solid var(--line);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-block-size: var(--header-h);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  margin-inline-end: auto;
+  text-decoration: none;
+}
+
+/* הלוגו מוצג במלואו, ללא חיתוך וללא מתיחה (יחס מקורי 1672×941) */
+.brand__logo {
+  inline-size: 136px;
+  block-size: auto;
+  /* טקסט ה-alt כ-fallback קריא אם התמונה לא נטענת */
+  color: var(--walnut);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.nav-desktop { display: none; }
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--s5);
+}
+
+.nav-list a {
+  display: inline-block;
+  padding-block: var(--s2);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+}
+.nav-list a:hover { color: var(--walnut); text-decoration: underline; }
+
+.header-cta { display: none; }
+
+/* ניווט מובייל — details/summary */
+.nav-mobile { flex: none; }
+
+.nav-mobile__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-block-size: 2.75rem;
+  padding-inline: var(--s3);
+  border: 1px solid var(--line-warm);
+  border-radius: var(--r-md);
+  color: var(--walnut);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.nav-mobile__toggle::-webkit-details-marker { display: none; }
+.nav-mobile__toggle::marker { content: ""; }
+
+.nav-mobile[open] .nav-mobile__toggle {
+  background-color: var(--walnut);
+  border-color: var(--walnut);
+  color: var(--white);
+}
+
+.nav-mobile__panel {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 100%;
+  padding: var(--s3) var(--gutter) var(--s5);
+  background-color: var(--cream);
+  border-block-end: 1px solid var(--line);
+  box-shadow: 0 14px 28px rgba(41, 41, 38, 0.1);
+}
+
+.nav-mobile__panel .nav-list {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.nav-mobile__panel .nav-list a {
+  padding-block: var(--s3);
+  border-block-end: 1px solid var(--line);
+  font-size: var(--fs-base);
+}
+.nav-mobile__panel .nav-list li:last-child a { border-block-end: 0; }
+
+.nav-mobile__cta { display: flex; margin-block-start: var(--s4); }
+
+/* --------------------------------------------------------------------------
+   6. Hero
+   -------------------------------------------------------------------------- */
+.hero { padding-block: var(--s6) var(--s7); }
+
+.hero__inner { display: grid; gap: var(--s6); }
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  margin-block-start: var(--s5);
+}
+
+.hero__actions .btn { flex: 1 1 13rem; }
+
+.hero__media { margin: 0; }
+
+.hero__media img {
+  inline-size: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  background-color: var(--sand);
+}
+
+/* --------------------------------------------------------------------------
+   7. גלריה
+   -------------------------------------------------------------------------- */
+.gallery { display: grid; gap: var(--s5); }
+
+.tile { margin: 0; }
+
+.tile img {
+  inline-size: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  background-color: var(--sand);
+}
+
+.tile figcaption {
+  margin-block-start: var(--s2);
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+}
+
+/* --------------------------------------------------------------------------
+   8. כרטיסים, ערכים, שלבים
+   -------------------------------------------------------------------------- */
+.cards,
+.values { display: grid; gap: var(--s4); }
+
+.card,
+.value {
+  padding: var(--s5);
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.card h3,
+.value h3 { margin-block-end: var(--s2); }
+
+.card p,
+.value p { margin: 0; color: var(--ink-soft); }
+
+.value {
+  border-inline-start: 4px solid var(--oak);
+}
+
+.steps {
+  display: grid;
+  gap: var(--s4);
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  counter-increment: step;
+  padding: var(--s4);
+  padding-inline-start: 3.75rem;
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.step::before {
+  content: counter(step);
+  position: absolute;
+  inset-block-start: var(--s4);
+  inset-inline-start: var(--s4);
+  display: grid;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 50%;
+  background-color: var(--oak);
+  color: var(--graphite);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.step h3 { margin-block-end: var(--s1); }
+.step p { margin: 0; color: var(--ink-soft); }
+
+/* --------------------------------------------------------------------------
+   9. על הנגרייה
+   -------------------------------------------------------------------------- */
+.about { display: grid; gap: var(--s6); }
+.about__text p { max-inline-size: 62ch; color: var(--ink-soft); }
+.about__media { margin: 0; }
+
+.about__media img {
+  inline-size: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  background-color: var(--sand);
+}
+
+/* --------------------------------------------------------------------------
+   10. יצירת קשר וטופס
+   -------------------------------------------------------------------------- */
+.contact { display: grid; gap: var(--s6); }
+.contact__intro p { max-inline-size: 54ch; color: var(--ink-soft); }
+
+.contact__direct h3,
+.form h3 { margin-block-end: var(--s3); }
+
+.direct-list { display: grid; gap: var(--s3); }
+
+.form {
+  padding: var(--s5) var(--s4);
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.form-status {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s2);
+  margin-block-end: var(--s5);
+  padding: var(--s3) var(--s4);
+  border-inline-start: 4px solid var(--oak);
+  border-radius: var(--r-sm);
+  background-color: var(--sand);
+  font-size: var(--fs-sm);
+}
+
+.field { margin-block-end: var(--s4); }
+
+.field > label {
+  display: block;
+  margin-block-end: var(--s1);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.req { color: var(--walnut); font-weight: 400; }
+.opt { color: var(--ink-soft); font-weight: 400; }
+
+.help {
+  margin-block: var(--s1) 0;
+  color: var(--ink-soft);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+  inline-size: 100%;
+  min-block-size: 2.875rem;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--line-warm);
+  border-radius: var(--r-sm);
+  background-color: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--fs-sm);
+}
+
+textarea { min-block-size: 8rem; line-height: 1.6; resize: vertical; }
+
+select {
+  appearance: none;
+  padding-inline-end: 2rem;
+  background-image: linear-gradient(45deg, transparent 50%, var(--walnut) 50%),
+    linear-gradient(135deg, var(--walnut) 50%, transparent 50%);
+  background-position: left 1.1rem top 50%, left 0.75rem top 50%;
+  background-size: 0.35rem 0.35rem, 0.35rem 0.35rem;
+  background-repeat: no-repeat;
+}
+
+.field--check {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s1) var(--s2);
+  align-items: start;
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background-color: var(--cream);
+}
+
+.field--check input {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  margin-block-start: 0.3rem;
+  accent-color: var(--walnut);
+}
+
+.field--check label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.field--check .help { grid-column: 1 / -1; }
+
+/* --------------------------------------------------------------------------
+   11. מדיניות פרטיות
+   -------------------------------------------------------------------------- */
+.privacy {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background-color: var(--white);
+}
+
+.privacy > summary {
+  padding: var(--s3) var(--s4);
+  color: var(--walnut);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.privacy__body {
+  padding: 0 var(--s4) var(--s4);
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+}
+
+.privacy__body ul {
+  display: grid;
+  gap: var(--s2);
+  margin-block: var(--s3);
+}
+
+.privacy__body li {
+  padding-inline-start: var(--s4);
+  border-inline-start: 2px solid var(--oak);
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  padding-block: var(--s6);
+  background-color: var(--walnut);
+  color: var(--white);
+}
+
+.site-footer__inner { display: grid; gap: var(--s5); }
+
+.site-footer__contact { margin-block: var(--s3) 0; font-size: var(--fs-sm); }
+.site-footer a { color: var(--white); }
+.site-footer a:hover { color: var(--cream); }
+.site-footer .brand__logo {
+  /* הלוגו הוא PNG בצבעים קבועים — לוח בהיר שומר עליו קריא על רקע כהה */
+  inline-size: 132px;
+  background-color: var(--cream);
+  border-radius: var(--r-md);
+  color: var(--walnut);
+}
+
+.site-footer__nav ul { display: grid; gap: var(--s2); font-size: var(--fs-sm); }
+.site-footer__nav a { display: inline-block; padding-block: var(--s1); }
+
+.site-footer__legal {
+  margin: 0;
+  padding-block-start: var(--s4);
+  border-block-start: 1px solid rgba(255, 255, 255, 0.24);
+  color: var(--cream);
+  font-size: var(--fs-xs);
+}
+
+.site-footer :focus-visible { outline-color: var(--cream); }
+
+/* --------------------------------------------------------------------------
+   13. נקודות שבירה
+   -------------------------------------------------------------------------- */
+@media (min-width: 25em) {
+  .header-cta { display: inline-flex; }
+  .nav-mobile__cta { display: none; }
+}
+
+@media (min-width: 48em) {
+  :root { --header-h: 6.25rem; }
+
+  .site-header { position: sticky; inset-block-start: 0; }
+
+  .section { padding-block: var(--s8); }
+  .section--slim { padding-block: var(--s7); }
+
+  .brand__logo { inline-size: 160px; }
+
+  .nav-desktop { display: block; }
+  .nav-mobile { display: none; }
+
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: var(--s5) var(--s4); }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .values { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+
+  .about { grid-template-columns: 1fr 20rem; align-items: start; }
+
+  .form { padding: var(--s6); }
+  .direct-list { grid-template-columns: repeat(3, 1fr); }
+  .contact { max-inline-size: 48rem; margin-inline: auto; }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    column-gap: var(--s6);
+  }
+  .site-footer__nav ul { grid-template-columns: repeat(2, auto); column-gap: var(--s6); }
+  .site-footer__legal { grid-column: 1 / -1; }
+}
+
+@media (min-width: 64em) {
+  .hero__inner {
+    grid-template-columns: 1fr 34rem;
+    align-items: center;
+    gap: var(--s7);
+  }
+
+  .gallery { grid-template-columns: repeat(4, 1fr); }
+  .cards { grid-template-columns: repeat(4, 1fr); }
+  .values { grid-template-columns: repeat(4, 1fr); }
+  .steps { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   14. העדפות תנועה
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
