@@ -50,9 +50,17 @@ srcset widths in use:
 |---|---|
 | Hero (`ar_3:2`) | 480, 560, 760, 1120 |
 | Gallery tile (`ar_4:5`) | 400, 560, 720, 800 |
+| Gallery lightbox (`c_limit`) | 640, 900, 1122 |
 | About (`ar_4:5`) | 360, 560, 700 |
 | Header logo | 272, 360, 540 |
 | Footer logo | 264, 396 |
+
+The gallery lightbox (the enlarged view opened by clicking a tile) is the one
+slot that drops the `ar_4:5` crop: the originals are already 1122x1402, so it
+uses `c_limit` to show the whole frame without upscaling, and `q_auto:good`
+instead of `q_auto:eco` because the image is displayed close to full height.
+Those images carry `loading="lazy"` inside a `display: none` container, so they
+are fetched only when a visitor actually opens one.
 
 `og:image`, the schema.org logo and the favicon stay on plain `f_auto,q_auto` —
 social scrapers and favicon fetchers are not always AVIF-capable, and `f_auto`
