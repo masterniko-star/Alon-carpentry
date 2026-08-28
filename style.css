@@ -1,38 +1,52 @@
 /* ==========================================================================
    נגריית אלון — אתר תדמית סטטי
    Mobile-first · RTL · ללא frameworks, ללא ספריות, ללא פונטים חיצוניים
-   הפלטה נגזרה מצבעי הלוגו (logo1.png): חום עמוק, גוון עץ ואפור-פחם.
+
+   שפת העיצוב: דף שרטוט של נגרייה.
+   הפלטה נדגמה מהסדנה עצמה — קיר מסויד, עיפרון נגרים, צבע המכונות וסרט
+   המדידה — ולא מגווני עץ חמים. החום היחיד בעמוד הוא התמונות עצמן, והרקע
+   הקר גורם להן להיקרא כפריטים על שולחן עבודה ולא כטפט.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    1. משתנים
    -------------------------------------------------------------------------- */
 :root {
-  /* צבעי הלוגו */
-  --walnut: #533122;   /* חום עמוק — נדגם מהלוגו */
-  --oak: #BA8550;      /* גוון עץ — נדגם מהלוגו */
-  --graphite: #292926; /* אפור-פחם — נדגם מהלוגו */
+  /* צבעים — כל אחד נדגם מאובייקט אמיתי בסדנה */
+  --shop: #E8E9E4;        /* קיר מסויד באור צפוני — הרקע שעליו בוחנים פריט גמור */
+  --sheet: #F4F4F1;       /* דף תוכנית החיתוך ולוח מנוסר טרי — משטחי התוכן */
+  --pencil: #1B1D1C;      /* גרפיט של עיפרון נגרים — על הלוח הכול מסומן בעיפרון */
+  --pencil-soft: #4C514E; /* אותו עיפרון בלחיצה קלה — טקסט משני */
+  --petrol: #1A3639;      /* צבע המפעל של מכונות הנגרייה — הצבע הרווי היחיד בסדנה */
+  --tape: #E0A21A;        /* להב סרט המדידה — סימון בלבד, לעולם לא טקסט על רקע בהיר */
 
-  /* רקעים ונייטרלים */
-  --cream: #F6F1E9;
-  --sand: #EFE8DC;
-  --white: #FFFFFF;
-  --ink: var(--graphite);
-  --ink-soft: #57564F;
-  --line: rgba(41, 41, 38, 0.14);
-  --line-warm: rgba(83, 49, 34, 0.26);
+  /* נגזרות */
+  --line: rgba(27, 29, 28, 0.16);
+  --line-strong: rgba(27, 29, 28, 0.34);
+  --line-dark: rgba(244, 244, 241, 0.22);
+  --claim-soft: #B7C2BD;  /* טקסט משני על הפס הכהה */
+  --legal-soft: #A5ABA7;  /* שורת הזכויות ב-footer */
 
-  /* טיפוגרפיה — system stack עם תמיכה טובה בעברית */
+  /* רקע הסעיף הנוכחי — משמש לקטיעת קווי המידה במקום שבו יושב עליהם ערך */
+  --surface: var(--shop);
+
+  /* טיפוגרפיה — שני תפקידים, שניהם מגופני המערכת */
   --font: "Segoe UI", "Segoe UI Hebrew", -apple-system, BlinkMacSystemFont,
     "Helvetica Neue", "Arial Hebrew", Arial, "Noto Sans Hebrew", sans-serif;
+  /* תפקיד "הערת שרטוט": ספרות ולטינית ברוחב קבוע, עברית בגופן המערכת —
+     בדיוק כמו סימון בכתב יד על תוכנית מודפסת */
+  --font-note: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo,
+    "Courier New", "Segoe UI Hebrew", monospace;
 
-  --fs-xs: 0.8125rem;
-  --fs-sm: 0.9375rem;
+  --fs-2xs: 0.6875rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 0.9375rem;
   --fs-base: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
-  --fs-lead: clamp(1.0625rem, 1rem + 0.4vw, 1.1875rem);
-  --fs-h3: 1.125rem;
-  --fs-h2: clamp(1.375rem, 1.15rem + 0.95vw, 1.875rem);
-  --fs-h1: clamp(1.8125rem, 1.35rem + 2.1vw, 2.875rem);
+  --fs-lead: clamp(1.0625rem, 0.99rem + 0.45vw, 1.25rem);
+  --fs-h3: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --fs-h2: clamp(1.5rem, 1.17rem + 1.35vw, 2.375rem);
+  --fs-h1: clamp(1.9375rem, 1.2rem + 3.2vw, 3.875rem);
 
   /* מרווחים */
   --s1: 0.25rem;
@@ -45,9 +59,8 @@
   --s8: 4.5rem;
 
   /* צורה ופריסה */
-  --r-sm: 0.375rem;
-  --r-md: 0.625rem;
-  --r-lg: 1rem;
+  /* הרדיוס היחיד בעמוד: שבירת קצה של 2 מ"מ, כמו על פאה מסוקלת ביד */
+  --r-break: 2px;
   --wrap: 70rem;
   --wrap-narrow: 46rem;
   --gutter: clamp(1rem, 0.6rem + 2vw, 2rem);
@@ -68,25 +81,39 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--cream);
-  color: var(--ink);
+  background-color: var(--shop);
+  color: var(--pencil);
   font-family: var(--font);
   font-size: var(--fs-base);
-  line-height: 1.75;
+  line-height: 1.7;
   overflow-wrap: break-word;
 }
 
+/* ניגוד בין התפקידים נבנה מקנה מידה, משקל וריווח — לא מגופן נוסף */
 h1, h2, h3 {
   margin: 0 0 var(--s3);
-  color: var(--walnut);
-  font-weight: 600;
-  line-height: 1.25;
+  color: var(--petrol);
+  font-weight: 700;
+  line-height: 1.12;
   text-wrap: balance;
 }
 
-h1 { font-size: var(--fs-h1); letter-spacing: -0.01em; }
-h2 { font-size: var(--fs-h2); }
-h3 { font-size: var(--fs-h3); }
+h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.03;
+  letter-spacing: -0.022em;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  letter-spacing: -0.018em;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.25;
+  letter-spacing: -0.008em;
+}
 
 p { margin: 0 0 var(--s4); }
 p:last-child { margin-block-end: 0; }
@@ -95,13 +122,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 img { display: block; max-inline-size: 100%; block-size: auto; }
 
-a { color: var(--walnut); text-underline-offset: 0.2em; }
-a:hover { color: var(--graphite); }
+a { color: var(--petrol); text-underline-offset: 0.2em; }
+a:hover { color: var(--pencil); }
+
+/* סימון טקסט בצבע סרט המדידה */
+::selection { background-color: var(--tape); color: var(--pencil); }
 
 :focus-visible {
-  outline: 3px solid var(--graphite);
+  outline: 3px solid var(--pencil);
   outline-offset: 2px;
-  border-radius: var(--r-sm);
+  border-radius: var(--r-break);
 }
 
 /* יעדי עוגן לא נחבאים מתחת ל-header הדביק */
@@ -124,9 +154,9 @@ a:hover { color: var(--graphite); }
   inset-block-start: var(--s2);
   inset-inline-start: var(--s2);
   padding: var(--s2) var(--s4);
-  background-color: var(--walnut);
-  color: var(--white);
-  border-radius: var(--r-md);
+  background-color: var(--petrol);
+  color: var(--sheet);
+  border-radius: var(--r-break);
   text-decoration: none;
 }
 
@@ -149,34 +179,56 @@ a:hover { color: var(--graphite); }
 
 .section--slim { padding-block: var(--s6); }
 
-.section--tint {
-  background-color: var(--sand);
-  /* מרקם עץ עדין מאוד — דקורטיבי בלבד */
-  background-image: repeating-linear-gradient(
-    90deg,
-    rgba(83, 49, 34, 0.024) 0 1px,
-    transparent 1px 9px
-  );
+/* שני משטחים בלבד, בלי מרקם דקורטיבי: מה שלא נראה — לא קיים */
+.section--sheet {
+  --surface: var(--sheet);
+  background-color: var(--sheet);
+}
+
+.section--dark {
+  --surface: var(--petrol);
+  background-color: var(--petrol);
+  border-block-start-color: transparent;
+  color: var(--sheet);
+}
+
+/* אחרי פס כהה אין צורך בקו הפרדה — המעבר עצמו הוא ההפרדה */
+.section--dark + .section { border-block-start-color: transparent; }
+
+/* תפקיד "הערת שרטוט": כל מה שהוא נתון, תווית או מספר */
+.eyebrow,
+.dimline__value,
+.dimline__note,
+.spec dt,
+.spec dd,
+.tile__kind,
+.step::before,
+.help,
+.form-status,
+.site-footer__legal {
+  font-family: var(--font-note);
+  letter-spacing: 0.14em;
 }
 
 .eyebrow {
-  margin-block-end: var(--s2);
-  color: var(--ink-soft);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  margin-block-end: var(--s4);
+  color: var(--pencil-soft);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
 }
 
 .lead {
   max-inline-size: 46ch;
-  color: var(--ink-soft);
+  margin-block-start: var(--s5);
+  color: var(--pencil-soft);
   font-size: var(--fs-lead);
+  line-height: 1.6;
 }
 
 .section-intro {
   max-inline-size: 60ch;
-  margin-block-end: var(--s5);
-  color: var(--ink-soft);
+  margin-block-end: var(--s6);
+  color: var(--pencil-soft);
 }
 
 /* --------------------------------------------------------------------------
@@ -189,10 +241,10 @@ a:hover { color: var(--graphite); }
   min-block-size: 2.875rem;
   padding: var(--s2) var(--s5);
   border: 1px solid transparent;
-  border-radius: var(--r-md);
+  border-radius: var(--r-break);
   font: inherit;
-  font-size: var(--fs-sm);
-  font-weight: 600;
+  font-size: var(--fs-md);
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
@@ -200,23 +252,23 @@ a:hover { color: var(--graphite); }
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
-.btn--primary { background-color: var(--walnut); color: var(--white); }
-.btn--primary:hover { background-color: var(--graphite); color: var(--white); }
+.btn--primary { background-color: var(--petrol); color: var(--sheet); }
+.btn--primary:hover { background-color: var(--pencil); color: var(--sheet); }
 
 .btn--ghost {
   background-color: transparent;
-  border-color: var(--line-warm);
-  color: var(--walnut);
+  border-color: var(--line-strong);
+  color: var(--petrol);
 }
-.btn--ghost:hover { border-color: var(--walnut); background-color: rgba(186, 133, 80, 0.12); }
+.btn--ghost:hover { border-color: var(--petrol); background-color: rgba(26, 54, 57, 0.08); }
 
 .btn--outline {
   inline-size: 100%;
-  background-color: var(--white);
-  border-color: var(--oak);
-  color: var(--walnut);
+  background-color: var(--sheet);
+  border-color: var(--line-strong);
+  color: var(--petrol);
 }
-.btn--outline:hover { background-color: rgba(186, 133, 80, 0.12); }
+.btn--outline:hover { background-color: var(--shop); border-color: var(--petrol); }
 
 .btn--sm {
   min-block-size: 2.5rem;
@@ -225,9 +277,9 @@ a:hover { color: var(--graphite); }
 }
 
 .btn[disabled] {
-  background-color: #DCD4C7;
+  background-color: #C9CBC6;
   border-color: transparent;
-  color: var(--ink-soft);
+  color: var(--pencil-soft);
   cursor: not-allowed;
 }
 
@@ -237,8 +289,8 @@ a:hover { color: var(--graphite); }
 .site-header {
   position: relative; /* בנייד ה-header אינו דביק כדי לא לגזול גובה מסך */
   z-index: 20;
-  background-color: var(--cream);
-  border-block-end: 1px solid var(--line);
+  background-color: var(--shop);
+  border-block-end: 1px solid var(--line-strong);
 }
 
 .site-header__bar {
@@ -260,7 +312,7 @@ a:hover { color: var(--graphite); }
   inline-size: 136px;
   block-size: auto;
   /* טקסט ה-alt כ-fallback קריא אם התמונה לא נטענת */
-  color: var(--walnut);
+  color: var(--petrol);
   font-size: 1rem;
   font-weight: 700;
 }
@@ -276,11 +328,11 @@ a:hover { color: var(--graphite); }
 .nav-list a {
   display: inline-block;
   padding-block: var(--s2);
-  color: var(--ink);
-  font-size: var(--fs-sm);
+  color: var(--pencil);
+  font-size: var(--fs-md);
   text-decoration: none;
 }
-.nav-list a:hover { color: var(--walnut); text-decoration: underline; }
+.nav-list a:hover { color: var(--petrol); text-decoration: underline; }
 
 .header-cta { display: none; }
 
@@ -293,11 +345,11 @@ a:hover { color: var(--graphite); }
   gap: var(--s2);
   min-block-size: 2.75rem;
   padding-inline: var(--s3);
-  border: 1px solid var(--line-warm);
-  border-radius: var(--r-md);
-  color: var(--walnut);
-  font-size: var(--fs-sm);
-  font-weight: 600;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-break);
+  color: var(--petrol);
+  font-size: var(--fs-md);
+  font-weight: 700;
   cursor: pointer;
   list-style: none;
 }
@@ -305,9 +357,9 @@ a:hover { color: var(--graphite); }
 .nav-mobile__toggle::marker { content: ""; }
 
 .nav-mobile[open] .nav-mobile__toggle {
-  background-color: var(--walnut);
-  border-color: var(--walnut);
-  color: var(--white);
+  background-color: var(--petrol);
+  border-color: var(--petrol);
+  color: var(--sheet);
 }
 
 .nav-mobile__panel {
@@ -315,9 +367,9 @@ a:hover { color: var(--graphite); }
   inset-inline: 0;
   inset-block-start: 100%;
   padding: var(--s3) var(--gutter) var(--s5);
-  background-color: var(--cream);
-  border-block-end: 1px solid var(--line);
-  box-shadow: 0 14px 28px rgba(41, 41, 38, 0.1);
+  background-color: var(--shop);
+  border-block-end: 1px solid var(--line-strong);
+  box-shadow: 0 14px 28px rgba(27, 29, 28, 0.14);
 }
 
 .nav-mobile__panel .nav-list {
@@ -336,17 +388,51 @@ a:hover { color: var(--graphite); }
 .nav-mobile__cta { display: flex; margin-block-start: var(--s4); }
 
 /* --------------------------------------------------------------------------
-   6. Hero
+   6. Hero — דף השרטוט
    -------------------------------------------------------------------------- */
 .hero { padding-block: var(--s6) var(--s7); }
 
-.hero__inner { display: grid; gap: var(--s6); }
+/* סימני פינה של דף שרטוט, באלכסון אחד בלבד.
+   ריפוד תחתון כדי שהסימן התחתון לא ייצמד לשורה האחרונה של אזור הכותרת */
+.hero__sheet {
+  position: relative;
+  padding-block-end: var(--s5);
+}
+
+.hero__sheet::before,
+.hero__sheet::after {
+  content: "";
+  position: absolute;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  border: 0 solid var(--line-strong);
+}
+
+.hero__sheet::before {
+  inset-block-start: 0;
+  inset-inline-start: var(--gutter);
+  border-block-start-width: 1px;
+  border-inline-start-width: 1px;
+}
+
+.hero__sheet::after {
+  inset-block-end: 0;
+  inset-inline-end: var(--gutter);
+  border-block-end-width: 1px;
+  border-inline-end-width: 1px;
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--s6);
+  padding-block-start: var(--s5);
+}
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--s3);
-  margin-block-start: var(--s5);
+  margin-block-start: var(--s6);
 }
 
 .hero__actions .btn { flex: 1 1 13rem; }
@@ -357,8 +443,99 @@ a:hover { color: var(--graphite); }
   inline-size: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
-  border-radius: var(--r-lg);
-  background-color: var(--sand);
+  border-radius: var(--r-break);
+  background-color: var(--sheet);
+}
+
+/* קו מידה — האלמנט המזהה של העמוד.
+   בשרטוט נגרות עומד כאן מספר; כאן המידה שייכת ללקוח ועוד לא נמדדה,
+   ולכן במקום מספר עומדת בה משתנה. */
+.dimline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: var(--s3);
+  margin-block-start: var(--s5);
+}
+
+.dimline__rule {
+  position: relative;
+  block-size: 1px;
+  background-color: var(--pencil-soft);
+}
+
+.dimline__rule::before,
+.dimline__rule::after {
+  content: "";
+  position: absolute;
+  background-color: var(--pencil-soft);
+}
+
+/* קו הארכה אנכי בקצה החיצוני של כל צלע */
+.dimline__rule::before {
+  inset-block-start: -0.4rem;
+  inline-size: 1px;
+  block-size: 0.85rem;
+}
+.dimline__rule--start::before { inset-inline-start: 0; }
+.dimline__rule--end::before { inset-inline-end: 0; }
+
+/* ראש חץ שפונה כלפי חוץ, לכל כיוון בנפרד */
+.dimline__rule::after {
+  inset-block-start: -3px;
+  inline-size: 9px;
+  block-size: 7px;
+}
+.dimline__rule--start::after {
+  inset-inline-start: 1px;
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
+}
+.dimline__rule--end::after {
+  inset-inline-end: 1px;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+}
+
+.dimline__value {
+  padding-inline: var(--s2);
+  border-block-end: 2px solid var(--tape);
+  color: var(--pencil);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.dimline__note {
+  grid-column: 1 / -1;
+  margin-block-start: var(--s2);
+  color: var(--pencil-soft);
+  font-size: var(--fs-xs);
+  text-align: center;
+}
+
+/* אזור הכותרת של השרטוט: הנתונים שנשאלים בכל פנייה */
+.specstrip {
+  margin: var(--s7) 0 0;
+  border-block: 1px solid var(--line-strong);
+}
+
+.spec {
+  padding-block: var(--s3);
+  border-block-end: 1px solid var(--line);
+}
+.spec:last-child { border-block-end: 0; }
+
+.spec dt {
+  margin-block-end: var(--s1);
+  color: var(--pencil-soft);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.2em;
+}
+
+.spec dd {
+  margin: 0;
+  color: var(--pencil);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 /* --------------------------------------------------------------------------
@@ -372,20 +549,29 @@ a:hover { color: var(--graphite); }
   inline-size: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: var(--r-md);
-  background-color: var(--sand);
+  border-radius: var(--r-break);
+  background-color: var(--sheet);
 }
 
-.tile figcaption {
-  margin-block-start: var(--s2);
-  color: var(--ink-soft);
+.tile__caption {
+  margin-block-start: var(--s3);
+  color: var(--pencil-soft);
   font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+/* שורת הסוג והחומר — בתפקיד הערת השרטוט */
+.tile__kind {
+  display: block;
+  margin-block-end: var(--s1);
+  color: var(--petrol);
+  font-size: var(--fs-2xs);
 }
 
 /* הקישור שעוטף את התמונה — לא משנה את מראה האריח, רק את הסמן */
 .tile__zoom {
   display: block;
-  border-radius: var(--r-md);
+  border-radius: var(--r-break);
   cursor: zoom-in;
 }
 
@@ -397,7 +583,7 @@ a:hover { color: var(--graphite); }
   z-index: 40;
   place-items: center;
   padding: var(--s5);
-  background-color: rgba(41, 41, 38, 0.9);
+  background-color: rgba(27, 29, 28, 0.93);
   /* בלי האיפוס הזה הדפדפן מגלגל את הדף כדי "לחשוף" את יעד ה-:target */
   scroll-margin: 0;
 }
@@ -433,15 +619,17 @@ html:has(.lightbox:target) {
   aspect-ratio: 1122 / 1402;
   object-fit: contain;
   margin-inline: auto;
-  border-radius: var(--r-md);
-  background-color: var(--sand);
+  border-radius: var(--r-break);
+  background-color: var(--pencil);
 }
 
 .lightbox__figure figcaption {
   margin-block-start: var(--s3);
-  color: var(--cream);
+  color: var(--shop);
   font-size: var(--fs-sm);
 }
+
+.lightbox__figure .tile__kind { color: var(--tape); }
 
 .lightbox__close {
   position: absolute;
@@ -451,95 +639,125 @@ html:has(.lightbox:target) {
   place-items: center;
   inline-size: 2.75rem;
   block-size: 2.75rem;
-  border-radius: 50%;
-  background-color: var(--white);
-  color: var(--ink);
+  border-radius: var(--r-break);
+  background-color: var(--sheet);
+  color: var(--pencil);
   font-size: 1.75rem;
   line-height: 1;
   text-decoration: none;
 }
 
-.lightbox :focus-visible { outline-color: var(--cream); }
+.lightbox :focus-visible { outline-color: var(--sheet); }
 
 /* --------------------------------------------------------------------------
-   8. כרטיסים, ערכים, שלבים
+   8. סוגי עבודות — רשימת פריטים, לא כרטיסים
    -------------------------------------------------------------------------- */
-.cards,
-.values { display: grid; gap: var(--s4); }
+.specs { border-block-start: 1px solid var(--line-strong); }
 
-.card,
-.value {
-  padding: var(--s5);
-  background-color: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-}
-
-.card h3,
-.value h3 { margin-block-end: var(--s2); }
-
-.card p,
-.value p { margin: 0; color: var(--ink-soft); }
-
-.value {
-  border-inline-start: 4px solid var(--oak);
-}
-
-.steps {
+.spec-row {
   display: grid;
-  gap: var(--s4);
+  gap: var(--s2);
+  padding-block: var(--s5);
+  border-block-end: 1px solid var(--line);
+}
+
+.spec-row h3 { margin: 0; }
+.spec-row p { margin: 0; color: var(--pencil-soft); }
+
+/* --------------------------------------------------------------------------
+   9. איך נראית העבודה — הצהרות על פס כהה, בלי מסגרות
+   -------------------------------------------------------------------------- */
+.section--dark h2,
+.claim h3 { color: var(--sheet); }
+
+.claims { display: grid; gap: var(--s6); margin-block-start: var(--s6); }
+
+.claim p { margin: 0; color: var(--claim-soft); }
+
+/* סימן קצר בצבע סרט המדידה — הסימון שמסמן איפה מתחילה כל טענה */
+.claim::before {
+  content: "";
+  display: block;
+  inline-size: 1.75rem;
+  block-size: 2px;
+  margin-block-end: var(--s3);
+  background-color: var(--tape);
+}
+
+/* --------------------------------------------------------------------------
+   10. תהליך העבודה — סרגל מידה
+   הסעיף היחיד שממוספר, כי כאן הסדר באמת נושא מידע. המספרים יושבים על הקו
+   וקוטעים אותו, בדיוק כמו ערך על קו מידה בשרטוט.
+   -------------------------------------------------------------------------- */
+.steps {
+  position: relative;
+  display: grid;
+  gap: var(--s5);
   counter-reset: step;
+}
+
+/* הקו עצמו: אנכי בנייד */
+.steps::before {
+  content: "";
+  position: absolute;
+  inset-block: 0.55rem 0.55rem;
+  inset-inline-start: 0.8rem;
+  inline-size: 1px;
+  background-color: var(--pencil-soft);
+}
+
+/* קו הארכה בקצה התחתון של הסרגל */
+.steps::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 0.5rem;
+  inset-inline-start: 0.42rem;
+  inline-size: 0.78rem;
+  block-size: 1px;
+  background-color: var(--pencil-soft);
 }
 
 .step {
   position: relative;
   counter-increment: step;
-  padding: var(--s4);
-  padding-inline-start: 3.75rem;
-  background-color: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
+  padding-inline-start: 3rem;
 }
 
 .step::before {
-  content: counter(step);
+  content: counter(step, decimal-leading-zero);
   position: absolute;
-  inset-block-start: var(--s4);
-  inset-inline-start: var(--s4);
-  display: grid;
-  place-items: center;
-  inline-size: 2rem;
-  block-size: 2rem;
-  border-radius: 50%;
-  background-color: var(--oak);
-  color: var(--graphite);
-  font-size: var(--fs-sm);
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  padding-block: 0.1rem;
+  background-color: var(--surface);
+  color: var(--pencil);
+  font-size: var(--fs-xs);
   font-weight: 700;
 }
 
 .step h3 { margin-block-end: var(--s1); }
-.step p { margin: 0; color: var(--ink-soft); }
+.step p { margin: 0; color: var(--pencil-soft); }
 
 /* --------------------------------------------------------------------------
-   9. על הנגרייה
+   11. על הנגרייה
    -------------------------------------------------------------------------- */
 .about { display: grid; gap: var(--s6); }
-.about__text p { max-inline-size: 62ch; color: var(--ink-soft); }
+.about__text p { max-inline-size: 62ch; color: var(--pencil-soft); }
 .about__media { margin: 0; }
 
 .about__media img {
   inline-size: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: var(--r-md);
-  background-color: var(--sand);
+  border-radius: var(--r-break);
+  background-color: var(--shop);
 }
 
 /* --------------------------------------------------------------------------
-   10. יצירת קשר וטופס
+   12. יצירת קשר וטופס
    -------------------------------------------------------------------------- */
 .contact { display: grid; gap: var(--s6); }
-.contact__intro p { max-inline-size: 54ch; color: var(--ink-soft); }
+.contact__intro p { max-inline-size: 54ch; color: var(--pencil-soft); }
 
 .contact__direct h3,
 .form h3 { margin-block-end: var(--s3); }
@@ -548,9 +766,9 @@ html:has(.lightbox:target) {
 
 .form {
   padding: var(--s5) var(--s4);
-  background-color: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
+  background-color: var(--sheet);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-break);
 }
 
 .form-status {
@@ -559,10 +777,12 @@ html:has(.lightbox:target) {
   gap: var(--s2);
   margin-block-end: var(--s5);
   padding: var(--s3) var(--s4);
-  border-inline-start: 4px solid var(--oak);
-  border-radius: var(--r-sm);
-  background-color: var(--sand);
-  font-size: var(--fs-sm);
+  border-inline-start: 3px solid var(--tape);
+  background-color: var(--shop);
+  color: var(--pencil-soft);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  letter-spacing: 0.06em;
 }
 
 .field { margin-block-end: var(--s4); }
@@ -570,18 +790,19 @@ html:has(.lightbox:target) {
 .field > label {
   display: block;
   margin-block-end: var(--s1);
-  font-size: var(--fs-sm);
-  font-weight: 600;
+  font-size: var(--fs-md);
+  font-weight: 700;
 }
 
-.req { color: var(--walnut); font-weight: 400; }
-.opt { color: var(--ink-soft); font-weight: 400; }
+.req { color: var(--petrol); font-weight: 400; }
+.opt { color: var(--pencil-soft); font-weight: 400; }
 
 .help {
   margin-block: var(--s1) 0;
-  color: var(--ink-soft);
-  font-size: var(--fs-xs);
-  line-height: 1.5;
+  color: var(--pencil-soft);
+  font-size: var(--fs-2xs);
+  line-height: 1.6;
+  letter-spacing: 0.06em;
 }
 
 input[type="text"],
@@ -592,12 +813,12 @@ textarea {
   inline-size: 100%;
   min-block-size: 2.875rem;
   padding: var(--s2) var(--s3);
-  border: 1px solid var(--line-warm);
-  border-radius: var(--r-sm);
-  background-color: var(--white);
-  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-break);
+  background-color: var(--shop);
+  color: var(--pencil);
   font: inherit;
-  font-size: var(--fs-sm);
+  font-size: var(--fs-md);
 }
 
 textarea { min-block-size: 8rem; line-height: 1.6; resize: vertical; }
@@ -605,8 +826,8 @@ textarea { min-block-size: 8rem; line-height: 1.6; resize: vertical; }
 select {
   appearance: none;
   padding-inline-end: 2rem;
-  background-image: linear-gradient(45deg, transparent 50%, var(--walnut) 50%),
-    linear-gradient(135deg, var(--walnut) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, transparent 50%, var(--petrol) 50%),
+    linear-gradient(135deg, var(--petrol) 50%, transparent 50%);
   background-position: left 1.1rem top 50%, left 0.75rem top 50%;
   background-size: 0.35rem 0.35rem, 0.35rem 0.35rem;
   background-repeat: no-repeat;
@@ -619,44 +840,44 @@ select {
   align-items: start;
   padding: var(--s4);
   border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background-color: var(--cream);
+  border-radius: var(--r-break);
+  background-color: var(--shop);
 }
 
 .field--check input {
   inline-size: 1.25rem;
   block-size: 1.25rem;
   margin-block-start: 0.3rem;
-  accent-color: var(--walnut);
+  accent-color: var(--petrol);
 }
 
 .field--check label {
-  font-size: var(--fs-sm);
-  font-weight: 600;
+  font-size: var(--fs-md);
+  font-weight: 700;
 }
 
 .field--check .help { grid-column: 1 / -1; }
 
 /* --------------------------------------------------------------------------
-   11. מדיניות פרטיות
+   13. מדיניות פרטיות
    -------------------------------------------------------------------------- */
 .privacy {
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background-color: var(--white);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-break);
+  background-color: var(--sheet);
 }
 
 .privacy > summary {
   padding: var(--s3) var(--s4);
-  color: var(--walnut);
-  font-size: var(--fs-sm);
-  font-weight: 600;
+  color: var(--petrol);
+  font-size: var(--fs-md);
+  font-weight: 700;
   cursor: pointer;
 }
 
 .privacy__body {
   padding: 0 var(--s4) var(--s4);
-  color: var(--ink-soft);
+  color: var(--pencil-soft);
   font-size: var(--fs-sm);
 }
 
@@ -668,48 +889,56 @@ select {
 
 .privacy__body li {
   padding-inline-start: var(--s4);
-  border-inline-start: 2px solid var(--oak);
+  border-inline-start: 1px solid var(--line-strong);
 }
 
 /* --------------------------------------------------------------------------
-   12. Footer
+   14. Footer
    -------------------------------------------------------------------------- */
 .site-footer {
   padding-block: var(--s6);
-  background-color: var(--walnut);
-  color: var(--white);
+  background-color: var(--pencil);
+  color: var(--shop);
 }
 
 .site-footer__inner { display: grid; gap: var(--s5); }
 
-.site-footer__contact { margin-block: var(--s3) 0; font-size: var(--fs-sm); }
-.site-footer a { color: var(--white); }
-.site-footer a:hover { color: var(--cream); }
+.site-footer__contact { margin-block: var(--s3) 0; font-size: var(--fs-md); }
+.site-footer a { color: var(--shop); }
+.site-footer a:hover { color: var(--tape); }
 .site-footer .brand__logo {
   /* הלוגו הוא PNG בצבעים קבועים — לוח בהיר שומר עליו קריא על רקע כהה */
   inline-size: 132px;
-  background-color: var(--cream);
-  border-radius: var(--r-md);
-  color: var(--walnut);
+  padding: var(--s2);
+  background-color: var(--sheet);
+  border-radius: var(--r-break);
+  color: var(--petrol);
 }
 
-.site-footer__nav ul { display: grid; gap: var(--s2); font-size: var(--fs-sm); }
+.site-footer__nav ul { display: grid; gap: var(--s2); font-size: var(--fs-md); }
 .site-footer__nav a { display: inline-block; padding-block: var(--s1); }
 
 .site-footer__legal {
   margin: 0;
   padding-block-start: var(--s4);
-  border-block-start: 1px solid rgba(255, 255, 255, 0.24);
-  color: var(--cream);
-  font-size: var(--fs-xs);
+  border-block-start: 1px solid var(--line-dark);
+  color: var(--legal-soft);
+  font-size: var(--fs-2xs);
+  line-height: 1.7;
 }
 
-.site-footer :focus-visible { outline-color: var(--cream); }
+.section--dark :focus-visible,
+.site-footer :focus-visible { outline-color: var(--sheet); }
 
 /* --------------------------------------------------------------------------
-   13. עמודי מצב אחרי שליחת הטופס (toda.html, shgia.html)
+   15. עמודי מצב אחרי שליחת הטופס (toda.html, shgia.html)
    -------------------------------------------------------------------------- */
 .notice { text-align: center; }
+
+/* בעמוד מצב הכותרת אינה הצהרה פותחת אלא הודעה — ולכן בקנה מידה של h2 */
+.notice h1 { font-size: var(--fs-h2); letter-spacing: -0.018em; }
+
+.notice p { color: var(--pencil-soft); }
 
 /* הלוגו בראש העמוד — יחס מקורי נשמר, בלי חיתוך ובלי מתיחה */
 .notice__logo {
@@ -731,7 +960,7 @@ select {
 }
 
 /* --------------------------------------------------------------------------
-   14. נקודות שבירה
+   16. נקודות שבירה
    -------------------------------------------------------------------------- */
 @media (min-width: 25em) {
   .header-cta { display: inline-flex; }
@@ -751,10 +980,29 @@ select {
   .nav-desktop { display: block; }
   .nav-mobile { display: none; }
 
-  .gallery { grid-template-columns: repeat(2, 1fr); gap: var(--s5) var(--s4); }
-  .cards { grid-template-columns: repeat(2, 1fr); }
-  .values { grid-template-columns: repeat(2, 1fr); }
-  .steps { grid-template-columns: repeat(2, 1fr); }
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: var(--s6) var(--s4); }
+
+  .spec-row {
+    grid-template-columns: minmax(9rem, 14rem) 1fr;
+    gap: var(--s5);
+    align-items: baseline;
+    padding-block: var(--s6);
+  }
+
+  .claims { grid-template-columns: repeat(2, 1fr); gap: var(--s6) var(--s5); }
+  /* הסרגל נשאר אנכי עד לרוחב שבו נכנסות חמש תחנות בשורה אחת:
+     בשתי עמודות היה נדרש קו שני, וקו מידה אחד הוא בדיוק העניין */
+
+  /* אזור הכותרת נפרש לשלוש תאים מופרדים בקו, כמו בשרטוט מודפס */
+  .specstrip { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .spec {
+    padding-block: var(--s4);
+    padding-inline: var(--s5);
+    border-block-end: 0;
+    border-inline-end: 1px solid var(--line);
+  }
+  .spec:first-child { padding-inline-start: 0; }
+  .spec:last-child { padding-inline-end: 0; border-inline-end: 0; }
 
   .about { grid-template-columns: 1fr 20rem; align-items: start; }
 
@@ -776,16 +1024,46 @@ select {
     grid-template-columns: 1fr 34rem;
     align-items: center;
     gap: var(--s7);
+    padding-block-start: var(--s6);
   }
 
   .gallery { grid-template-columns: repeat(4, 1fr); }
-  .cards { grid-template-columns: repeat(4, 1fr); }
-  .values { grid-template-columns: repeat(4, 1fr); }
-  .steps { grid-template-columns: repeat(3, 1fr); }
+  .claims { grid-template-columns: repeat(4, 1fr); }
+
+  /* הסרגל מסתובב לרוחב: קו אחד, חמש תחנות, המספרים יושבים עליו */
+  .steps {
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: var(--s5);
+    padding-block-start: 2.9rem;
+  }
+
+  .steps::before {
+    inset-block: auto;
+    inset-block-start: 1.35rem;
+    inset-inline: 0;
+    inline-size: auto;
+    block-size: 1px;
+  }
+
+  .steps::after {
+    inset-block-end: auto;
+    inset-block-start: 0.98rem;
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+    inline-size: 1px;
+    block-size: 0.78rem;
+  }
+
+  .step { padding-inline-start: 0; }
+
+  .step::before {
+    inset-block-start: -2.15rem;
+    padding-inline-end: var(--s3);
+  }
 }
 
 /* --------------------------------------------------------------------------
-   15. העדפות תנועה
+   17. העדפות תנועה
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
