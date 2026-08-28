@@ -483,16 +483,20 @@
       </div>
 
       <!--
-        TODO: לחבר endpoint אמיתי בצד שרת לפני הפעלת הטופס.
-        עד אז: אין action, אין method, כפתור השליחה disabled, ואין הודעת הצלחה מדומה.
-        לאחר החיבור יש להוסיף action="..." method="post" ולהסיר את ה-disabled ואת הודעת המצב.
+        הטופס מחובר ל-webhook של n8n שקולט את הפניות, שומר אותן בגיליון ושולח הודעות דוא״ל.
+        השליחה היא POST רגיל של HTML, בלי JavaScript, בהתאם לכללי הפרויקט.
+        TODO (אחרי שתיקבע כתובת הדומיין): להחליף ב-n8n את תשובות ה-JSON בהפניה
+        לעמודי תודה ושגיאה סטטיים באתר, כדי שהמבקר לא יישאר מול JSON גולמי אחרי השליחה.
       -->
-      <form class="form" aria-labelledby="form-title">
+      <form class="form"
+            action="https://masterniko.app.n8n.cloud/webhook/alon-carpentry-lead"
+            method="post"
+            aria-labelledby="form-title">
         <h3 id="form-title">או מלאו פרטים כאן</h3>
 
         <p class="form-status" id="form-status">
           <span aria-hidden="true">●</span>
-          הטופס המקוון יחובר לפני העלייה לאוויר. בינתיים ניתן ליצור קשר ישירות בטלפון, WhatsApp או בדוא״ל.
+          הפרטים נשלחים ישירות לנגריית אלון. שדות החובה הם שם מלא וטלפון.
         </p>
 
         <div class="field">
@@ -534,7 +538,7 @@
           <p class="help" id="consent-help">פירוט ב<a href="#privacy">מדיניות הפרטיות</a>.</p>
         </div>
 
-        <button type="submit" class="btn btn--primary" disabled aria-describedby="form-status">שליחת פנייה</button>
+        <button type="submit" class="btn btn--primary" aria-describedby="form-status">שליחת פנייה</button>
       </form>
 
     </div>
