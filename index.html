@@ -148,186 +148,394 @@
       <ul class="gallery">
         <li>
           <figure class="tile">
-            <picture>
-              <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
-              <source type="image/avif"
-                      srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857693/nagar-alon-pics/pic_alon_1.png 400w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857693/nagar-alon-pics/pic_alon_1.png 560w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857693/nagar-alon-pics/pic_alon_1.png 720w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857693/nagar-alon-pics/pic_alon_1.png 800w"
-                      sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
-              <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857693/nagar-alon-pics/pic_alon_1.png"
-                   srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857693/nagar-alon-pics/pic_alon_1.png 400w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857693/nagar-alon-pics/pic_alon_1.png 560w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857693/nagar-alon-pics/pic_alon_1.png 720w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857693/nagar-alon-pics/pic_alon_1.png 800w"
-                   sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
-                   width="800" height="1000" loading="lazy" decoding="async"
-                   alt="שולחן מעץ בהיר עם מגירה ורגליים דקות, מוצב ליד חלון גדול">
-            </picture>
+            <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
+            <a class="tile__zoom" href="#pic-1" aria-label="הגדלת התמונה: שולחן עם מגירה, מוצב ליד חלון">
+              <picture>
+                <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857693/nagar-alon-pics/pic_alon_1.png 400w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857693/nagar-alon-pics/pic_alon_1.png 560w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857693/nagar-alon-pics/pic_alon_1.png 720w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857693/nagar-alon-pics/pic_alon_1.png 800w"
+                        sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857693/nagar-alon-pics/pic_alon_1.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857693/nagar-alon-pics/pic_alon_1.png 400w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857693/nagar-alon-pics/pic_alon_1.png 560w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857693/nagar-alon-pics/pic_alon_1.png 720w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857693/nagar-alon-pics/pic_alon_1.png 800w"
+                     sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
+                     width="800" height="1000" loading="lazy" decoding="async"
+                     alt="שולחן מעץ בהיר עם מגירה ורגליים דקות, מוצב ליד חלון גדול">
+              </picture>
+            </a>
             <figcaption>שולחן עם מגירה, מוצב ליד חלון</figcaption>
           </figure>
+
+          <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
+          <div class="lightbox" id="pic-1">
+            <a class="lightbox__backdrop" href="#gallery" tabindex="-1" aria-hidden="true"></a>
+            <figure class="lightbox__figure">
+              <picture>
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_640/v1787857693/nagar-alon-pics/pic_alon_1.png 640w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_900/v1787857693/nagar-alon-pics/pic_alon_1.png 900w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_1122/v1787857693/nagar-alon-pics/pic_alon_1.png 1122w"
+                        sizes="min(92vw, 70vh)">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857693/nagar-alon-pics/pic_alon_1.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_640/v1787857693/nagar-alon-pics/pic_alon_1.png 640w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_900/v1787857693/nagar-alon-pics/pic_alon_1.png 900w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857693/nagar-alon-pics/pic_alon_1.png 1122w"
+                     sizes="min(92vw, 70vh)"
+                     width="1122" height="1402" loading="lazy" decoding="async"
+                     alt="שולחן מעץ בהיר עם מגירה ורגליים דקות, מוצב ליד חלון גדול">
+              </picture>
+              <figcaption>שולחן עם מגירה, מוצב ליד חלון</figcaption>
+            </figure>
+            <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
+          </div>
         </li>
 
         <li>
           <figure class="tile">
-            <picture>
-              <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
-              <source type="image/avif"
-                      srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857708/nagar-alon-pics/pic_alon_5.png 400w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857708/nagar-alon-pics/pic_alon_5.png 560w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857708/nagar-alon-pics/pic_alon_5.png 720w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857708/nagar-alon-pics/pic_alon_5.png 800w"
-                      sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
-              <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857708/nagar-alon-pics/pic_alon_5.png"
-                   srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857708/nagar-alon-pics/pic_alon_5.png 400w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857708/nagar-alon-pics/pic_alon_5.png 560w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857708/nagar-alon-pics/pic_alon_5.png 720w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857708/nagar-alon-pics/pic_alon_5.png 800w"
-                   sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
-                   width="800" height="1000" loading="lazy" decoding="async"
-                   alt="שולחן סלון נמוך מעץ בהיר עם מגירה ומדף פתוח, לצד כורסה">
-            </picture>
+            <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
+            <a class="tile__zoom" href="#pic-2" aria-label="הגדלת התמונה: שולחן סלון נמוך עם מגירה ומדף">
+              <picture>
+                <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857708/nagar-alon-pics/pic_alon_5.png 400w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857708/nagar-alon-pics/pic_alon_5.png 560w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857708/nagar-alon-pics/pic_alon_5.png 720w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857708/nagar-alon-pics/pic_alon_5.png 800w"
+                        sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857708/nagar-alon-pics/pic_alon_5.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857708/nagar-alon-pics/pic_alon_5.png 400w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857708/nagar-alon-pics/pic_alon_5.png 560w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857708/nagar-alon-pics/pic_alon_5.png 720w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857708/nagar-alon-pics/pic_alon_5.png 800w"
+                     sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
+                     width="800" height="1000" loading="lazy" decoding="async"
+                     alt="שולחן סלון נמוך מעץ בהיר עם מגירה ומדף פתוח, לצד כורסה">
+              </picture>
+            </a>
             <figcaption>שולחן סלון נמוך עם מגירה ומדף</figcaption>
           </figure>
+
+          <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
+          <div class="lightbox" id="pic-2">
+            <a class="lightbox__backdrop" href="#gallery" tabindex="-1" aria-hidden="true"></a>
+            <figure class="lightbox__figure">
+              <picture>
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_640/v1787857708/nagar-alon-pics/pic_alon_5.png 640w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_900/v1787857708/nagar-alon-pics/pic_alon_5.png 900w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_1122/v1787857708/nagar-alon-pics/pic_alon_5.png 1122w"
+                        sizes="min(92vw, 70vh)">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857708/nagar-alon-pics/pic_alon_5.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_640/v1787857708/nagar-alon-pics/pic_alon_5.png 640w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_900/v1787857708/nagar-alon-pics/pic_alon_5.png 900w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857708/nagar-alon-pics/pic_alon_5.png 1122w"
+                     sizes="min(92vw, 70vh)"
+                     width="1122" height="1402" loading="lazy" decoding="async"
+                     alt="שולחן סלון נמוך מעץ בהיר עם מגירה ומדף פתוח, לצד כורסה">
+              </picture>
+              <figcaption>שולחן סלון נמוך עם מגירה ומדף</figcaption>
+            </figure>
+            <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
+          </div>
         </li>
 
         <li>
           <figure class="tile">
-            <picture>
-              <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
-              <source type="image/avif"
-                      srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857704/nagar-alon-pics/pic_alon_4.png 400w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857704/nagar-alon-pics/pic_alon_4.png 560w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857704/nagar-alon-pics/pic_alon_4.png 720w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857704/nagar-alon-pics/pic_alon_4.png 800w"
-                      sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
-              <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857704/nagar-alon-pics/pic_alon_4.png"
-                   srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857704/nagar-alon-pics/pic_alon_4.png 400w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857704/nagar-alon-pics/pic_alon_4.png 560w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857704/nagar-alon-pics/pic_alon_4.png 720w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857704/nagar-alon-pics/pic_alon_4.png 800w"
-                   sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
-                   width="800" height="1000" loading="lazy" decoding="async"
-                   alt="יחידת ארון בנויה עם דלתות זכוכית מחורצת, מדפים פתוחים ומגירות בבסיס">
-            </picture>
+            <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
+            <a class="tile__zoom" href="#pic-3" aria-label="הגדלת התמונה: ארון בנוי עם דלתות זכוכית ומגירות">
+              <picture>
+                <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857704/nagar-alon-pics/pic_alon_4.png 400w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857704/nagar-alon-pics/pic_alon_4.png 560w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857704/nagar-alon-pics/pic_alon_4.png 720w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857704/nagar-alon-pics/pic_alon_4.png 800w"
+                        sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857704/nagar-alon-pics/pic_alon_4.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857704/nagar-alon-pics/pic_alon_4.png 400w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857704/nagar-alon-pics/pic_alon_4.png 560w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857704/nagar-alon-pics/pic_alon_4.png 720w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857704/nagar-alon-pics/pic_alon_4.png 800w"
+                     sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
+                     width="800" height="1000" loading="lazy" decoding="async"
+                     alt="יחידת ארון בנויה עם דלתות זכוכית מחורצת, מדפים פתוחים ומגירות בבסיס">
+              </picture>
+            </a>
             <figcaption>ארון בנוי עם דלתות זכוכית ומגירות</figcaption>
           </figure>
+
+          <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
+          <div class="lightbox" id="pic-3">
+            <a class="lightbox__backdrop" href="#gallery" tabindex="-1" aria-hidden="true"></a>
+            <figure class="lightbox__figure">
+              <picture>
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_640/v1787857704/nagar-alon-pics/pic_alon_4.png 640w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_900/v1787857704/nagar-alon-pics/pic_alon_4.png 900w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_1122/v1787857704/nagar-alon-pics/pic_alon_4.png 1122w"
+                        sizes="min(92vw, 70vh)">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857704/nagar-alon-pics/pic_alon_4.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_640/v1787857704/nagar-alon-pics/pic_alon_4.png 640w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_900/v1787857704/nagar-alon-pics/pic_alon_4.png 900w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857704/nagar-alon-pics/pic_alon_4.png 1122w"
+                     sizes="min(92vw, 70vh)"
+                     width="1122" height="1402" loading="lazy" decoding="async"
+                     alt="יחידת ארון בנויה עם דלתות זכוכית מחורצת, מדפים פתוחים ומגירות בבסיס">
+              </picture>
+              <figcaption>ארון בנוי עם דלתות זכוכית ומגירות</figcaption>
+            </figure>
+            <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
+          </div>
         </li>
 
         <li>
           <figure class="tile">
-            <picture>
-              <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
-              <source type="image/avif"
-                      srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857712/nagar-alon-pics/pic_alon_6.png 400w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857712/nagar-alon-pics/pic_alon_6.png 560w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857712/nagar-alon-pics/pic_alon_6.png 720w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857712/nagar-alon-pics/pic_alon_6.png 800w"
-                      sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
-              <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857712/nagar-alon-pics/pic_alon_6.png"
-                   srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857712/nagar-alon-pics/pic_alon_6.png 400w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857712/nagar-alon-pics/pic_alon_6.png 560w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857712/nagar-alon-pics/pic_alon_6.png 720w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857712/nagar-alon-pics/pic_alon_6.png 800w"
-                   sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
-                   width="800" height="1000" loading="lazy" decoding="async"
-                   alt="חלל מגורים פתוח ובו מזנון נמוך וארונות מעץ בהיר">
-            </picture>
+            <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
+            <a class="tile__zoom" href="#pic-4" aria-label="הגדלת התמונה: מזנון וארונות בחלל פתוח">
+              <picture>
+                <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857712/nagar-alon-pics/pic_alon_6.png 400w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857712/nagar-alon-pics/pic_alon_6.png 560w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857712/nagar-alon-pics/pic_alon_6.png 720w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857712/nagar-alon-pics/pic_alon_6.png 800w"
+                        sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857712/nagar-alon-pics/pic_alon_6.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857712/nagar-alon-pics/pic_alon_6.png 400w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857712/nagar-alon-pics/pic_alon_6.png 560w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857712/nagar-alon-pics/pic_alon_6.png 720w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857712/nagar-alon-pics/pic_alon_6.png 800w"
+                     sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
+                     width="800" height="1000" loading="lazy" decoding="async"
+                     alt="חלל מגורים פתוח ובו מזנון נמוך וארונות מעץ בהיר">
+              </picture>
+            </a>
             <figcaption>מזנון וארונות בחלל פתוח</figcaption>
           </figure>
+
+          <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
+          <div class="lightbox" id="pic-4">
+            <a class="lightbox__backdrop" href="#gallery" tabindex="-1" aria-hidden="true"></a>
+            <figure class="lightbox__figure">
+              <picture>
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_640/v1787857712/nagar-alon-pics/pic_alon_6.png 640w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_900/v1787857712/nagar-alon-pics/pic_alon_6.png 900w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_1122/v1787857712/nagar-alon-pics/pic_alon_6.png 1122w"
+                        sizes="min(92vw, 70vh)">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857712/nagar-alon-pics/pic_alon_6.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_640/v1787857712/nagar-alon-pics/pic_alon_6.png 640w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_900/v1787857712/nagar-alon-pics/pic_alon_6.png 900w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857712/nagar-alon-pics/pic_alon_6.png 1122w"
+                     sizes="min(92vw, 70vh)"
+                     width="1122" height="1402" loading="lazy" decoding="async"
+                     alt="חלל מגורים פתוח ובו מזנון נמוך וארונות מעץ בהיר">
+              </picture>
+              <figcaption>מזנון וארונות בחלל פתוח</figcaption>
+            </figure>
+            <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
+          </div>
         </li>
 
         <li>
           <figure class="tile">
-            <picture>
-              <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
-              <source type="image/avif"
-                      srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857727/nagar-alon-pics/pic_alon_10.png 400w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857727/nagar-alon-pics/pic_alon_10.png 560w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857727/nagar-alon-pics/pic_alon_10.png 720w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857727/nagar-alon-pics/pic_alon_10.png 800w"
-                      sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
-              <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857727/nagar-alon-pics/pic_alon_10.png"
-                   srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857727/nagar-alon-pics/pic_alon_10.png 400w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857727/nagar-alon-pics/pic_alon_10.png 560w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857727/nagar-alon-pics/pic_alon_10.png 720w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857727/nagar-alon-pics/pic_alon_10.png 800w"
-                   sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
-                   width="800" height="1000" loading="lazy" decoding="async"
-                   alt="קיר אחסון מעץ בהיר בחדר עבודה, עם ארונות סגורים, מדפים פתוחים ומשטח עבודה">
-            </picture>
+            <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
+            <a class="tile__zoom" href="#pic-5" aria-label="הגדלת התמונה: קיר אחסון עם משטח עבודה משולב">
+              <picture>
+                <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857727/nagar-alon-pics/pic_alon_10.png 400w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857727/nagar-alon-pics/pic_alon_10.png 560w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857727/nagar-alon-pics/pic_alon_10.png 720w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857727/nagar-alon-pics/pic_alon_10.png 800w"
+                        sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857727/nagar-alon-pics/pic_alon_10.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857727/nagar-alon-pics/pic_alon_10.png 400w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857727/nagar-alon-pics/pic_alon_10.png 560w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857727/nagar-alon-pics/pic_alon_10.png 720w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857727/nagar-alon-pics/pic_alon_10.png 800w"
+                     sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
+                     width="800" height="1000" loading="lazy" decoding="async"
+                     alt="קיר אחסון מעץ בהיר בחדר עבודה, עם ארונות סגורים, מדפים פתוחים ומשטח עבודה">
+              </picture>
+            </a>
             <figcaption>קיר אחסון עם משטח עבודה משולב</figcaption>
           </figure>
+
+          <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
+          <div class="lightbox" id="pic-5">
+            <a class="lightbox__backdrop" href="#gallery" tabindex="-1" aria-hidden="true"></a>
+            <figure class="lightbox__figure">
+              <picture>
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_640/v1787857727/nagar-alon-pics/pic_alon_10.png 640w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_900/v1787857727/nagar-alon-pics/pic_alon_10.png 900w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_1122/v1787857727/nagar-alon-pics/pic_alon_10.png 1122w"
+                        sizes="min(92vw, 70vh)">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857727/nagar-alon-pics/pic_alon_10.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_640/v1787857727/nagar-alon-pics/pic_alon_10.png 640w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_900/v1787857727/nagar-alon-pics/pic_alon_10.png 900w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857727/nagar-alon-pics/pic_alon_10.png 1122w"
+                     sizes="min(92vw, 70vh)"
+                     width="1122" height="1402" loading="lazy" decoding="async"
+                     alt="קיר אחסון מעץ בהיר בחדר עבודה, עם ארונות סגורים, מדפים פתוחים ומשטח עבודה">
+              </picture>
+              <figcaption>קיר אחסון עם משטח עבודה משולב</figcaption>
+            </figure>
+            <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
+          </div>
         </li>
 
         <li>
           <figure class="tile">
-            <picture>
-              <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
-              <source type="image/avif"
-                      srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857716/nagar-alon-pics/pic_alon_7.png 400w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857716/nagar-alon-pics/pic_alon_7.png 560w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857716/nagar-alon-pics/pic_alon_7.png 720w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857716/nagar-alon-pics/pic_alon_7.png 800w"
-                      sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
-              <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857716/nagar-alon-pics/pic_alon_7.png"
-                   srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857716/nagar-alon-pics/pic_alon_7.png 400w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857716/nagar-alon-pics/pic_alon_7.png 560w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857716/nagar-alon-pics/pic_alon_7.png 720w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857716/nagar-alon-pics/pic_alon_7.png 800w"
-                   sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
-                   width="800" height="1000" loading="lazy" decoding="async"
-                   alt="מטבח מעץ בהיר עם אי מרכזי, ארונות גבוהים ומשטח בהיר">
-            </picture>
+            <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
+            <a class="tile__zoom" href="#pic-6" aria-label="הגדלת התמונה: מטבח עם אי מרכזי וארונות גבוהים">
+              <picture>
+                <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857716/nagar-alon-pics/pic_alon_7.png 400w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857716/nagar-alon-pics/pic_alon_7.png 560w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857716/nagar-alon-pics/pic_alon_7.png 720w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857716/nagar-alon-pics/pic_alon_7.png 800w"
+                        sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857716/nagar-alon-pics/pic_alon_7.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857716/nagar-alon-pics/pic_alon_7.png 400w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857716/nagar-alon-pics/pic_alon_7.png 560w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857716/nagar-alon-pics/pic_alon_7.png 720w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857716/nagar-alon-pics/pic_alon_7.png 800w"
+                     sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
+                     width="800" height="1000" loading="lazy" decoding="async"
+                     alt="מטבח מעץ בהיר עם אי מרכזי, ארונות גבוהים ומשטח בהיר">
+              </picture>
+            </a>
             <figcaption>מטבח עם אי מרכזי וארונות גבוהים</figcaption>
           </figure>
+
+          <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
+          <div class="lightbox" id="pic-6">
+            <a class="lightbox__backdrop" href="#gallery" tabindex="-1" aria-hidden="true"></a>
+            <figure class="lightbox__figure">
+              <picture>
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_640/v1787857716/nagar-alon-pics/pic_alon_7.png 640w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_900/v1787857716/nagar-alon-pics/pic_alon_7.png 900w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_1122/v1787857716/nagar-alon-pics/pic_alon_7.png 1122w"
+                        sizes="min(92vw, 70vh)">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857716/nagar-alon-pics/pic_alon_7.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_640/v1787857716/nagar-alon-pics/pic_alon_7.png 640w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_900/v1787857716/nagar-alon-pics/pic_alon_7.png 900w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857716/nagar-alon-pics/pic_alon_7.png 1122w"
+                     sizes="min(92vw, 70vh)"
+                     width="1122" height="1402" loading="lazy" decoding="async"
+                     alt="מטבח מעץ בהיר עם אי מרכזי, ארונות גבוהים ומשטח בהיר">
+              </picture>
+              <figcaption>מטבח עם אי מרכזי וארונות גבוהים</figcaption>
+            </figure>
+            <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
+          </div>
         </li>
 
         <li>
           <figure class="tile">
-            <picture>
-              <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
-              <source type="image/avif"
-                      srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857719/nagar-alon-pics/pic_alon_8.png 400w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857719/nagar-alon-pics/pic_alon_8.png 560w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857719/nagar-alon-pics/pic_alon_8.png 720w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857719/nagar-alon-pics/pic_alon_8.png 800w"
-                      sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
-              <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857719/nagar-alon-pics/pic_alon_8.png"
-                   srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857719/nagar-alon-pics/pic_alon_8.png 400w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857719/nagar-alon-pics/pic_alon_8.png 560w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857719/nagar-alon-pics/pic_alon_8.png 720w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857719/nagar-alon-pics/pic_alon_8.png 800w"
-                   sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
-                   width="800" height="1000" loading="lazy" decoding="async"
-                   alt="תקריב של פינת אי מטבח מעץ בהיר עם משטח אבן וקצה מעוגל">
-            </picture>
+            <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
+            <a class="tile__zoom" href="#pic-7" aria-label="הגדלת התמונה: תקריב: פינת אי וקצה מעוגל">
+              <picture>
+                <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857719/nagar-alon-pics/pic_alon_8.png 400w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857719/nagar-alon-pics/pic_alon_8.png 560w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857719/nagar-alon-pics/pic_alon_8.png 720w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857719/nagar-alon-pics/pic_alon_8.png 800w"
+                        sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857719/nagar-alon-pics/pic_alon_8.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857719/nagar-alon-pics/pic_alon_8.png 400w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857719/nagar-alon-pics/pic_alon_8.png 560w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857719/nagar-alon-pics/pic_alon_8.png 720w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857719/nagar-alon-pics/pic_alon_8.png 800w"
+                     sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
+                     width="800" height="1000" loading="lazy" decoding="async"
+                     alt="תקריב של פינת אי מטבח מעץ בהיר עם משטח אבן וקצה מעוגל">
+              </picture>
+            </a>
             <figcaption>תקריב: פינת אי וקצה מעוגל</figcaption>
           </figure>
+
+          <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
+          <div class="lightbox" id="pic-7">
+            <a class="lightbox__backdrop" href="#gallery" tabindex="-1" aria-hidden="true"></a>
+            <figure class="lightbox__figure">
+              <picture>
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_640/v1787857719/nagar-alon-pics/pic_alon_8.png 640w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_900/v1787857719/nagar-alon-pics/pic_alon_8.png 900w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_1122/v1787857719/nagar-alon-pics/pic_alon_8.png 1122w"
+                        sizes="min(92vw, 70vh)">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857719/nagar-alon-pics/pic_alon_8.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_640/v1787857719/nagar-alon-pics/pic_alon_8.png 640w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_900/v1787857719/nagar-alon-pics/pic_alon_8.png 900w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857719/nagar-alon-pics/pic_alon_8.png 1122w"
+                     sizes="min(92vw, 70vh)"
+                     width="1122" height="1402" loading="lazy" decoding="async"
+                     alt="תקריב של פינת אי מטבח מעץ בהיר עם משטח אבן וקצה מעוגל">
+              </picture>
+              <figcaption>תקריב: פינת אי וקצה מעוגל</figcaption>
+            </figure>
+            <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
+          </div>
         </li>
 
         <li>
           <figure class="tile">
-            <picture>
-              <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
-              <source type="image/avif"
-                      srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857723/nagar-alon-pics/pic_alon_9.png 400w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857723/nagar-alon-pics/pic_alon_9.png 560w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857723/nagar-alon-pics/pic_alon_9.png 720w,
-                              https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857723/nagar-alon-pics/pic_alon_9.png 800w"
-                      sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
-              <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857723/nagar-alon-pics/pic_alon_9.png"
-                   srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857723/nagar-alon-pics/pic_alon_9.png 400w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857723/nagar-alon-pics/pic_alon_9.png 560w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857723/nagar-alon-pics/pic_alon_9.png 720w,
-                           https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857723/nagar-alon-pics/pic_alon_9.png 800w"
-                   sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
-                   width="800" height="1000" loading="lazy" decoding="async"
-                   alt="תקריב של חזית מגירה מעץ בהיר עם קצה מעוגל וקו הפרדה כהה">
-            </picture>
+            <!-- לחיצה על התמונה פותחת תצוגה מוגדלת דרך :target, בלי JavaScript -->
+            <a class="tile__zoom" href="#pic-8" aria-label="הגדלת התמונה: תקריב: חזית מגירה וקו הפרדה">
+              <picture>
+                <!-- AVIF תחילה: כמחצית מהבייטים של WebP באותה איכות -->
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857723/nagar-alon-pics/pic_alon_9.png 400w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857723/nagar-alon-pics/pic_alon_9.png 560w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857723/nagar-alon-pics/pic_alon_9.png 720w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857723/nagar-alon-pics/pic_alon_9.png 800w"
+                        sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857723/nagar-alon-pics/pic_alon_9.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_400/v1787857723/nagar-alon-pics/pic_alon_9.png 400w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_560/v1787857723/nagar-alon-pics/pic_alon_9.png 560w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_720/v1787857723/nagar-alon-pics/pic_alon_9.png 720w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,c_fill,g_auto,ar_4:5,w_800/v1787857723/nagar-alon-pics/pic_alon_9.png 800w"
+                     sizes="(min-width: 64em) 16rem, (min-width: 48em) 45vw, 90vw"
+                     width="800" height="1000" loading="lazy" decoding="async"
+                     alt="תקריב של חזית מגירה מעץ בהיר עם קצה מעוגל וקו הפרדה כהה">
+              </picture>
+            </a>
             <figcaption>תקריב: חזית מגירה וקו הפרדה</figcaption>
           </figure>
+
+          <!-- התצוגה המוגדלת עצמה; נסגרת בלחיצה על הרקע או על כפתור הסגירה -->
+          <div class="lightbox" id="pic-8">
+            <a class="lightbox__backdrop" href="#gallery" tabindex="-1" aria-hidden="true"></a>
+            <figure class="lightbox__figure">
+              <picture>
+                <source type="image/avif"
+                        srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_640/v1787857723/nagar-alon-pics/pic_alon_9.png 640w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_900/v1787857723/nagar-alon-pics/pic_alon_9.png 900w,
+                                https://res.cloudinary.com/zrevzjvb/image/upload/f_avif,q_auto:good,c_limit,w_1122/v1787857723/nagar-alon-pics/pic_alon_9.png 1122w"
+                        sizes="min(92vw, 70vh)">
+                <img src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857723/nagar-alon-pics/pic_alon_9.png"
+                     srcset="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_640/v1787857723/nagar-alon-pics/pic_alon_9.png 640w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_900/v1787857723/nagar-alon-pics/pic_alon_9.png 900w,
+                             https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:good,c_limit,w_1122/v1787857723/nagar-alon-pics/pic_alon_9.png 1122w"
+                     sizes="min(92vw, 70vh)"
+                     width="1122" height="1402" loading="lazy" decoding="async"
+                     alt="תקריב של חזית מגירה מעץ בהיר עם קצה מעוגל וקו הפרדה כהה">
+              </picture>
+              <figcaption>תקריב: חזית מגירה וקו הפרדה</figcaption>
+            </figure>
+            <a class="lightbox__close" href="#gallery" aria-label="סגירת התצוגה המוגדלת"><span aria-hidden="true">×</span></a>
+          </div>
         </li>
       </ul>
     </div>
