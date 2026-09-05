@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שאלו את אלון — העוזר הדיגיטלי של נגריית אלון</title>
+<meta name="description" content="עוזר דיגיטלי של נגריית אלון: מחירים משוערים, זמני ייצור, סוגי עץ, אחריות, השארת פנייה ותיאום מדידה — בשיחה.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto,w_128/v1787857680/nagar-alon-pics/logo1.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* עמוד הצ'אט — משתמש במשתני העיצוב של האתר (style.css) */
+  .chat-page { background: var(--shop); min-height: 100vh; display: flex; flex-direction: column; }
+  .chat-main { flex: 1; width: 100%; max-width: var(--wrap-narrow); margin: 0 auto; padding: var(--s5) var(--gutter) var(--s7); display: flex; flex-direction: column; gap: var(--s4); }
+  .chat-intro h1 { font-size: var(--fs-h2); margin: 0 0 var(--s2); letter-spacing: -0.02em; line-height: 1.15; text-wrap: balance; }
+  .chat-intro p { margin: 0; color: var(--pencil-soft); max-width: 60ch; }
+  .chat-note { font-family: var(--font-note); font-size: var(--fs-xs); letter-spacing: 0.12em; color: var(--pencil-soft); text-transform: uppercase; }
+
+  .chat-box { background: var(--sheet); border: 1px solid var(--line-strong); border-radius: var(--r-break); display: flex; flex-direction: column; min-height: 60vh; max-height: 78vh; }
+  .chat-log { flex: 1; overflow-y: auto; padding: var(--s4); display: flex; flex-direction: column; gap: var(--s3); scroll-behavior: smooth; }
+  .msg { max-width: 85%; padding: var(--s3) var(--s4); border-radius: var(--r-break); line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; font-size: var(--fs-md); }
+  .msg--bot { align-self: flex-start; background: var(--shop); border-inline-start: 3px solid var(--tape); }
+  .msg--user { align-self: flex-end; background: var(--petrol); color: var(--sheet); }
+  .msg--error { align-self: stretch; background: transparent; border: 1px dashed var(--line-strong); color: var(--pencil-soft); font-family: var(--font-note); font-size: var(--fs-sm); }
+  .msg--typing { color: var(--pencil-soft); font-family: var(--font-note); font-size: var(--fs-sm); letter-spacing: 0.1em; }
+
+  .chat-form { display: flex; gap: var(--s2); padding: var(--s3); border-top: 1px solid var(--line); background: var(--sheet); }
+  .chat-form textarea { flex: 1; resize: none; min-height: 2.75rem; max-height: 9rem; padding: var(--s2) var(--s3); font: inherit; font-size: var(--fs-md); color: var(--pencil); background: var(--shop); border: 1px solid var(--line-strong); border-radius: var(--r-break); }
+  .chat-form textarea:focus-visible { outline: 2px solid var(--petrol); outline-offset: 1px; }
+  .chat-form button { flex: none; padding: 0 var(--s5); font: inherit; font-weight: 600; color: var(--sheet); background: var(--petrol); border: 0; border-radius: var(--r-break); cursor: pointer; }
+  .chat-form button:disabled { opacity: 0.55; cursor: default; }
+  .chat-form button:focus-visible { outline: 2px solid var(--tape); outline-offset: 2px; }
+
+  .chat-suggest { display: flex; flex-wrap: wrap; gap: var(--s2); }
+  .chat-suggest button { font: inherit; font-size: var(--fs-sm); color: var(--pencil); background: var(--sheet); border: 1px solid var(--line-strong); border-radius: var(--r-break); padding: var(--s1) var(--s3); cursor: pointer; }
+  .chat-suggest button:hover { border-color: var(--petrol); }
+
+  .chat-foot { font-size: var(--fs-sm); color: var(--pencil-soft); }
+  .chat-foot a { color: var(--petrol); }
+  .chat-header-link { font-size: var(--fs-sm); }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  @media (prefers-reduced-motion: reduce) { .chat-log { scroll-behavior: auto; } }
+</style>
+</head>
+<body class="chat-page">
+
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="index.html" aria-label="נגריית אלון — לדף הבית">
+      <img class="brand__logo"
+           src="https://res.cloudinary.com/zrevzjvb/image/upload/f_auto,q_auto:eco,w_360/v1787857680/nagar-alon-pics/logo1.png"
+           sizes="(min-width: 48em) 160px, 136px"
+           width="1672" height="941" decoding="async" alt="נגריית אלון">
+    </a>
+    <nav class="nav-desktop" aria-label="ניווט ראשי">
+      <ul class="nav-list">
+        <li><a href="index.html#gallery">עבודות</a></li>
+        <li><a href="index.html#services">סוגי עבודות</a></li>
+        <li><a href="index.html#process">תהליך העבודה</a></li>
+        <li><a href="index.html#about">על הנגרייה</a></li>
+        <li><a href="index.html#contact">יצירת קשר</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--primary btn--sm header-cta" href="index.html#contact">בואו נדבר</a>
+  </div>
+</header>
+
+<main class="chat-main">
+  <div class="chat-intro">
+    <span class="chat-note">עוזר דיגיטלי · עונה מתוך מסמכי הנגרייה</span>
+    <h1>שאלו את אלון</h1>
+    <p>מחירים משוערים, זמני ייצור, סוגי עץ וגימור, אחריות והובלה. אפשר גם להשאיר פנייה — נחזור תוך יום עסקים אחד. לפני כל פעולה (מייל, רישום, מועד) העוזר יבקש אישור.</p>
+  </div>
+
+  <div class="chat-suggest" aria-label="שאלות לדוגמה">
+    <button type="button" data-q="כמה עולה בערך שולחן אוכל מעץ אלון ל-6 סועדים?">כמה עולה שולחן אוכל מאלון?</button>
+    <button type="button" data-q="כמה זמן לוקח לייצר מטבח ומה שלבי התהליך?">כמה זמן לוקח לייצר מטבח?</button>
+    <button type="button" data-q="איך מטפלים ברהיט עם גימור שמן?">איך מטפלים בגימור שמן?</button>
+    <button type="button" data-q="אני רוצה להשאיר פנייה לקיר אחסון בסלון">להשאיר פנייה</button>
+  </div>
+
+  <section class="chat-box" aria-label="שיחה עם העוזר הדיגיטלי">
+    <div class="chat-log" id="log" role="log" aria-live="polite">
+      <div class="msg msg--bot">שלום! אני העוזר הדיגיטלי של נגריית אלון. אפשר לשאול אותי על מחירים, זמני ייצור, סוגי עץ, אחריות — או להשאיר פנייה ולתאם מדידה.</div>
+    </div>
+    <form class="chat-form" id="form">
+      <label class="visually-hidden" for="input">הודעה</label>
+      <textarea id="input" rows="1" placeholder="כתבו כאן…" required autocomplete="off"></textarea>
+      <button type="submit" id="send">שליחה</button>
+    </form>
+  </section>
+
+  <p class="chat-foot">התשובות מבוססות על מסמכי הנגרייה ומסומנות במקור. מחירים הם משוערים — המחיר הסופי נקבע אחרי מדידה. עדיף לדבר עם אדם? <a href="tel:0540000000">054-000-0000</a> · <a href="mailto:wagonstore@gmail.com">wagonstore@gmail.com</a></p>
+</main>
+
+<script>
+(function () {
+  var WEBHOOK = 'https://masterniko.app.n8n.cloud/webhook/5cbf581c-78b8-42bb-8656-3d057f829805/chat';
+  var log = document.getElementById('log');
+  var form = document.getElementById('form');
+  var input = document.getElementById('input');
+  var send = document.getElementById('send');
+
+  var sessionId;
+  try {
+    sessionId = sessionStorage.getItem('alon-chat-session');
+    if (!sessionId) {
+      sessionId = 'web-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+      sessionStorage.setItem('alon-chat-session', sessionId);
+    }
+  } catch (e) {
+    sessionId = 'web-' + Date.now().toString(36);
+  }
+
+  function add(text, cls) {
+    var el = document.createElement('div');
+    el.className = 'msg ' + cls;
+    el.textContent = text;
+    log.appendChild(el);
+    log.scrollTop = log.scrollHeight;
+    return el;
+  }
+
+  function setBusy(busy) {
+    send.disabled = busy;
+    input.disabled = busy;
+  }
+
+  function ask(text) {
+    text = String(text || '').trim();
+    if (!text) return;
+    add(text, 'msg--user');
+    input.value = '';
+    input.style.height = '';
+    setBusy(true);
+    var typing = add('העוזר חושב…', 'msg--bot msg--typing');
+
+    var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 90000) : null;
+
+    fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sessionId: sessionId, action: 'sendMessage', chatInput: text }),
+      signal: ctrl ? ctrl.signal : undefined
+    })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(function (raw) {
+        var answer = raw;
+        try {
+          var data = JSON.parse(raw);
+          answer = data.output || data.text || data.message || (Array.isArray(data) && data[0] && (data[0].output || data[0].text)) || raw;
+        } catch (e) { /* plain text response */ }
+        typing.remove();
+        add(String(answer).trim() || 'לא התקבלה תשובה. נסו שוב.', 'msg--bot');
+      })
+      .catch(function (err) {
+        typing.remove();
+        var why = err && err.name === 'AbortError' ? 'העוזר לא ענה בזמן.' : 'העוזר לא זמין כרגע.';
+        add(why + ' אפשר לנסות שוב בעוד רגע, או להתקשר: 054-000-0000.', 'msg--error');
+      })
+      .then(function () {
+        if (timer) clearTimeout(timer);
+        setBusy(false);
+        input.focus();
+      });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    ask(input.value);
+  });
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      form.requestSubmit ? form.requestSubmit() : ask(input.value);
+    }
+  });
+
+  input.addEventListener('input', function () {
+    input.style.height = '';
+    input.style.height = Math.min(input.scrollHeight, 144) + 'px';
+  });
+
+  var chips = document.querySelectorAll('.chat-suggest button');
+  for (var i = 0; i < chips.length; i++) {
+    chips[i].addEventListener('click', function () { ask(this.getAttribute('data-q')); });
+  }
+})();
+</script>
+</body>
+</html>
